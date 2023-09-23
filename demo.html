@@ -1,268 +1,218 @@
-﻿﻿<!DOCTYPE html>
-<html lang="zh">
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Yukin Pan</title>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content=" no-cache" > -->
+    <meta http-equiv="expires" content="0" >
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link href="//cdn.bootcss.com/skeleton/2.0.4/skeleton.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary" onclick="openNav()">
+						<i class="fa fa-bars"></i>
+						<span class="sr-only">Toggle Menu</span>
+	        		</button>
+        		</div>
+				<div class="p-4 pt-5">
+		  			<h3><a href="JiangtianPan.github.io" class="logo">Yukin Pan</a></h3>
+	       			<ul class="list-unstyled components mb-5">
+	          	<li class="active">
+					<a href="index.html">HOME</a>
+	          	</li>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
-    <title>Yukin's HomePage</title>
-    <meta name="description" content="Computer Vision Researcher">
-    <meta name="keywords" content="Java,Spring,个人博客，微信小程序，博客">
-    <meta name="format-detection" content="telephone=no">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="static/css/index.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
-    <script type="text/javascript">
-        if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
-            alert('朋友，上古浏览器不支持呢~');
-        }
-    </script>
-</head>
+                <li class="active">
+                    <a href="resume.html">Resume</a>
+                </li>
 
-<body>
-    <div id="body-wrap">
-        <main id="content-outer">
-            <div class="layout_page" id="content-inner">
-                <div class="aside_content" id="aside_content">
-                    <div class="card-widget card-info">
-                        <div class="card-content">
-                            <div class="card-info-avatar is-center">
-                                <img class="avatar-img"
-                                    src="https://github.com/JiangtianPan/JiangtianPan.github.io/blob/main/img/avata.jpg?raw=true"
-                                    alt="avatar">
-                                <div class="author-info__name">Yukin's HomePage</div>
-                                <!-- <div class="author-info__description">I am a computer vision researcher at Megvii (Face++) Research. 
-                                    I obtained my Bachelor's degree and Master's degree from Wuhan University and The Ohio State University respectively. 
-                                    My research and project topics are mainly about Real-time Video Quality Enhancement in mobile devices, like Video Denoising, Video Frame Interporlation and Video Bokeh.
-                                </div> -->
-                            </div>
-                            <div class="card-info-social-icons is-center">
-                                <a class="social-icon" href="https://github.com/JiangtianPan" target="_blank">
-                                    <i class="fa fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
+                <li class="active">
+                    <a href="demo.html">Demo</a>
+                </li>
+	        	</ul>
+                <div class="mb-5 contact">
+                    <h6 class="h6">contact</h6>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                            </svg>
+                            <a href = "mailto: jiangtianpan@hotmail.com"> jiangtianpan@hotmail.com</a>
                     </div>
-
-                    <div class="card-widget card-announcement">
-                        <div class="card-content">
-                            <div class="item-headline">
-                                <!-- <i class="fa fa-bullhorn" aria-hidden="true"></i> -->
-                                <i class="fa fa-book fa-fw"></i>
-                                <span><b>Education</b></span><br>
-                                <!-- <i class="fa fa-square"></i> -->
-                                <a>Bachelor:</a>
-                                <li><a>Wuhan University [2013-2017]</a></li>
-                                <li><a>Automation</a></li>
-                                <br>
-                                <!-- <i class="fa fa-square"></i> -->
-                                <a>Master:</a>
-                                <li><a>The Ohio State University [2017-2019]</a></li>
-                                <li><a>Electrical & Computer Engineering</a></li>
-                            </div>
-                            <!-- <div id="hitokoto"></div> -->
-                        </div>
+                    
+                    <div class="contact-sub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        <a href = "https://github.com/JiangtianPan">Yukin Pan</a>
                     </div>
-                    <div class="card-widget card-announcement">
-                        <div class="card-content">
-                            <div class="item-headline">
-                                <i class="fa fa-home fa-fw" aria-hidden="true"></i>
-                                <span><b>Working Experiences</b></span><br>
-                                <a>vivo AI Lab [2019-2021]</a>
-                                <li><a>Vision Enhancement</a></li>
-                                <br>
-                                <a>Megvii (Face++) Research [2021-present]</a>
-                                <li><a>Computational Photography</a></li>
-                            </div>
-                            <!-- <div id="jinrishici-sentence"></div> -->
-                        </div>
-                    </div>
-
                 </div>
-                <article id="page">
-                    <div class="article-container">
-                        
-                        <h2>Video Denoising</h2>
-                        <div class="tool">
-                            <a>This is the comparison of the input and output in video denoiosing.</a><br>
-                            <a>The pipeline contains pre-process, post-process and a CNN-based deep learning model.</a><br>
-                            <a>The pre-process and post-process runs on GPU and the deep learning model runs on NPU.</a><br>
-                            <a>The whole pipeline can run in mobile devices (<font size="2" color="#2828FF"><b>Qualcomm</b></font> 8th generation and <font size="2" color="#FF9224"><b>MTK</b></font> DX1) for a real time (30fps).</a><br>
-                            <a><font size="2" color="#00FFFF"><b>1080p:</b></font> input (left) and output (right)</a>
-                            <img style="max-width:100%;overflow:hidden;" src="./img/1080p.png" alt="">
-                            <a><font size="2" color="#00FFFF"><b>4K:</b></font> input (left) and output (right)</a>
-                            <img style="max-width:100%;overflow:hidden;" src="./img/4k.png" alt="">
-                        </div>
-                            
-                        <hr>
-                        <h2>Projects</h2>
-                        <div class="tool">
-                        <a>Real-Time Video Quality Enhancement in Mobile Device</a><br>
-                        <a>Human Parsing via Reinforcement Learning</a><br>
-                        <a>Dynamic Analysis & Optimization of Complex Networks</a><br>
-                        <a>Real-Time Frame Interposition and Motion Deblur in Mobile Device</a><br>
-                        <a>Face Clustering in Digital Album</a><br>
-                        <a>Real-Time Human Segmentation in Mobile Device</a><br>
-                        </div>
-                            
-                        <hr>
 
-                        <h2>Professional Skills</h2>
-                        <div class="tool">
-                            <a>Python, Java, Matlab, HTML</a><br>
-                            <a>Tensorflow, Pytorch, MegEngine, TFLite</a><br>
-                            <a>Low-Level Vision, Image/Video Quality Enhancement, Real-Time CNN Model Design for Mobile Device</a>
-                        </div>
-                        
-                        <!-- <div class="skillbox">
-                            <div class="skillbar">
-                                <div class="skillbar-title"
-                                    style="background: linear-gradient(to right, #FF0066 0%, #FF00CC 100%); width: 75%">
-                                    <span>Python</span>
-                                </div>
-                                <div class="skill-bar-percent">75%</div>
-                            </div>
-                            <div class="skillbar">
-                                <div class="skillbar-title"
-                                    style="background: linear-gradient(to right, #9900FF 0%, #CC66FF 100%); width: 40%">
-                                    <span>前端</span>
-                                </div>
-                                <div class="skill-bar-percent">40%</div>
-                            </div>
-                            <div class="skillbar">
-                                <div class="skillbar-title"
-                                    style="background: linear-gradient(to right, #2196F3 0%, #42A5F5 100%); width: 60%">
-                                    <span>Spring</span>
-                                </div>
-                                <div class="skill-bar-percent">60%</div>
-                            </div>
-                            <div class="skillbar">
-                                <div class="skillbar-title"
-                                    style="background: linear-gradient(to right, #00BCD4 0%, #80DEEA 100%); width: 70%">
-                                    <span>SpringMVC</span>
-                                </div>
-                                <div class="skill-bar-percent">70%</div>
-                            </div>
-                            <div class="skillbar">
-                                <div class="skillbar-title"
-                                    style="background: linear-gradient(to right, #00BCD4 0%, #f54009 100%); width: 80%">
-                                    <span>SpringBoot</span>
-                                </div>
-                                <div class="skill-bar-percent">80%</div>
-                            </div>
-                            <div class="skillbar">
-                                <div class="skillbar-title"
-                                    style="background: linear-gradient(to right, #4CAF50 0%, #81C784 100%); width: 60%">
-                                    <span>Mybatis</span>
-                                </div>
-                                <div class="skill-bar-percent">60%</div>
-                            </div>
-                            <div class="skillbar">
-                                <div class="skillbar-title"
-                                    style="background: linear-gradient(to right, #FFEB3B 0%, #FFF176 100%); width: 75%">
-                                    <span>数据结构与算法</span>
-                                </div>
-                                <div class="skill-bar-percent">75%</div>
-                            </div>
-                        </div> -->
+                <div class="footer">
+                    <p>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved to Yukin Pan
+                    </p>
+                </div>
+            </nav>
+        </div>
 
-                        <hr>
-                        <h2>Publication</h2>
-                        <div class="tool">
-                            <a>Yunhan Huang, Li Ding, Yun Feng, Jiangtian Pan. “Epidemic Spreading in Random Walkers with Heterogeneous Interaction Radius”, JSTAT 2016(10), 103501.</a><br>
-                            <!--<a href="https://www.nowcoder.com/ta/coding-interviews" target="_blank">剑指 Offer</a>-->
-                        </div>
 
-                        <hr>
-                        <h2>Demo</h2>
-                        <div class="tool">
-                            <a href="http://tooool.org/" target="_blank" rel="noopener noreferrer">Video Denoise</a>
-                            <!-- <a href="https://adzhp.cn/" target="_blank" rel="noopener noreferrer">爱达杂货铺、</a>
-                            <a href="http://ifeve.com/" target="_blank" rel="noopener noreferrer">并发编程网</a> -->
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5 pt-5">
+            <style>
+                body{
+                    background: #fff;
+                    margin:0;
+                }
+                .box{
+                    width:1080px;
+                    margin:0 auto;
+                    position:relative;
+                }
+                .box .left{
+                    width:480px;
+                    height:270px;
+                    background-color:#fff;
+                    position:absolute;
+                    
+                }
+                .box .right{
+                    width:480px;
+                    height:270px;
+                    background-color:#fff;
+                    position:absolute;
+                    right:0;
+                    top:0;
+                }
+            </style>
+
+            <div id="demo1" style="height:450px;">
+                <h5 class="mb-2">Video Quality Enhancement for Mobile Devices</h5>
+                <ul>
+                    <li>This algorithm can run with 1080p-60fps or 4K-30fps on Qualcom Snapdragon plateform >= 8450 in Raw Pipeline.</li>
+                    <li>This algorithm can run with 1080p-60fps or 4K-30fps on Qualcom Snapdragon plateform >= 7450 in YUV Pipeline.</li>
+                    <li>This video is recoreded by using Mi 12 [2022].</li>
+                </ul>
+                <ul>
+                    <div class="box">
+                        <div class="left">
+                            <video id="svq_input" width="480" height="270" controls autoplay title="Input">
+                                <source src="/documents/demo/SVQ_input.mp4" type="video/mp4">
+                                <!-- <source src="movie.ogg" type="video/ogg">
+                                <source src="movie.webm" type="video/webm"> -->
+                                sorry, this video is not supported in your browser.
+                            </video>
                         </div>
                     </div>
-                </article>
+
+                    <div class="box">
+                        <div class="right">
+                            <video id="svq_output" width="480" height="270" controls autoplay title="Output">
+                                <source src="/documents/demo/SVQ_out.mp4" type="video/mp4">
+                                <!-- <source src="movie.ogg" type="video/ogg">
+                                <source src="movie.webm" type="video/webm"> -->
+                                sorry, this video is not supported in your browser.
+                            </video>
+                        </div>
+                    </div>
+                </ul>
             </div>
-        </main>
-        <footer id="footer">
-            <div id="footer-wrap">
-                <div class="copyright">&copy;2017 - 2022 BY Yukin</div>
+
+            <div id="demo2" style="height: 700px">
+                <h5 class="mb-2">Video Super Resolution for Mobile Devices</h5>
+                <ul>
+                    <li>This algorithm can run with 720p-24fps (super resolution 720p -> 1440p) on Qualcom Snapdragon plateform >= 8475 in YUV Pipeline.</li>
+                    <li>This video is recoreded by using Honor [2023].</li>
+                </ul>
+                <ul>
+                    <div>
+                        <p style="text-align: center;">
+                            <img src="documents/demo/SR_cmp.png" width="960" height="270">
+                        </p>
+                        
+                    </div>
+                    <div class="box">
+                        <div class="left">
+                            <video id="svq_input" width="480" height="270" controls autoplay title="Input">
+                                <source src="/documents/demo/SR_input.mp4" type="video/mp4">
+                                <!-- <source src="movie.ogg" type="video/ogg">
+                                <source src="movie.webm" type="video/webm"> -->
+                                sorry, this video is not supported in your browser.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="right">
+                            <video id="svq_output" width="480" height="270" controls autoplay title="Output">
+                                <source src="/documents/demo/SR_output.mp4" type="video/mp4">
+                                <!-- <source src="movie.ogg" type="video/ogg">
+                                <source src="movie.webm" type="video/webm"> -->
+                                sorry, this video is not supported in your browser.
+                            </video>
+                        </div>
+                    </div>
+                </ul>
             </div>
-        </footer>
-    </div>
+            
+            <div id="demo3" style="height: 700px">
+                <h5 class="mb-2">Human Segmentation for Mobile Devices</h5>
+                <ul>
+                    <li>This algorithm can run with 720p-30fps on Qualcom Snapdragon plateform >= 765G in YUV Pipeline [in 2020].</li>
+                </ul>
+                <ul>
+                    <div>
+                        <p style="text-align: center;">
+                            <img src="documents/demo/seg.png" width="960" height="540">
+                        </p>
+                        
+                    </div>
+                </ul>
+            </div>
 
+            <div id="demo4" style="height: 800px">
+                <h5 class="mb-2">Frame Interpolation for Mobile Devices</h5>
+                <ul>
+                    <li>This algorithm can run with 720p-30fps (frame interpolated 30fps -> 60fps) on Qualcom Snapdragon plateform >= 8550 in YUV Pipeline.</li>
+                </ul>
+                <ul>
+                    <div class="box">
+                        <div class="left">
+                            <video id="svq_input" width="480" height="270" controls autoplay title="Input">
+                                <source src="/documents/demo/MEMC_input.mp4" type="video/mp4">
+                                <!-- <source src="movie.ogg" type="video/ogg">
+                                <source src="movie.webm" type="video/webm"> -->
+                                sorry, this video is not supported in your browser.
+                            </video>
+                        </div>
+                    </div>
 
-    <!--鼠标点击效果-->
-    <script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.8/js/maodian.js"></script>
+                    <div class="box">
+                        <div class="right">
+                            <video id="svq_output" width="480" height="270" controls autoplay title="Output">
+                                <source src="/documents/demo/MEMC_output.mp4" type="video/mp4">
+                                <!-- <source src="movie.ogg" type="video/ogg">
+                                <source src="movie.webm" type="video/webm"> -->
+                                sorry, this video is not supported in your browser.
+                            </video>
+                        </div>
+                    </div>
+                </ul>
+            </div>
 
-    <script type="text/javascript">
-        console.clear();
-        console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
-        console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/laoxuai");
-        console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.0.0");
+        </div>
 
-
-        (function ($) {
-            $.fn.snow = function (options) {
-                var $flake = $('<div id="snowbox" />').css({ 'position': 'absolute', 'z-index': '9999', 'top': '-50px' }).html('&#10052;'),
-                    documentHeight = $(document).height(),
-                    documentWidth = $(document).width(),
-                    defaults = {
-                        minSize: 10,
-                        maxSize: 20,
-                        newOn: 1000,
-                        flakeColor: "#AFDAEF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
-                    },
-                    options = $.extend({}, defaults, options);
-                var interval = setInterval(function () {
-                    var startPositionLeft = Math.random() * documentWidth - 100,
-                        startOpacity = 0.5 + Math.random(),
-                        sizeFlake = options.minSize + Math.random() * options.maxSize,
-                        endPositionTop = documentHeight - 200,
-                        endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
-                        durationFall = documentHeight * 10 + Math.random() * 5000;
-                    $flake.clone().appendTo('body').css({
-                        left: startPositionLeft,
-                        opacity: startOpacity,
-                        'font-size': sizeFlake,
-                        color: options.flakeColor
-                    }).animate({
-                        top: endPositionTop,
-                        left: endPositionLeft,
-                        opacity: 0.2
-                    }, durationFall, 'linear', function () {
-                        $(this).remove()
-                    });
-                }, options.newOn);
-            };
-        })(jQuery);
-        $(function () {
-            $.fn.snow({
-                minSize: 5, /* 定义雪花最小尺寸 */
-                maxSize: 50,/* 定义雪花最大尺寸 */
-                newOn: 800  /* 定义密集程度，数字越小越密集 */
-            });
-        });
-
-        // 浏览器搞笑标题
-        var OriginTitle = document.title;
-        var titleTime;
-        document.addEventListener('visibilitychange', function () {
-            if (document.hidden) {
-                // $('[rel="icon"]').attr('href', "/funny.ico");
-                document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
-                clearTimeout(titleTime);
-            }
-            else {
-                $('[rel="icon"]').attr('href', "/favicon.ico");
-                document.title = '(ฅ>ω<*ฅ) 噫又好啦 ~' + OriginTitle;
-                titleTime = setTimeout(function () {
-                    document.title = OriginTitle;
-                }, 2000);
-            }
-        });
-    </script>
-</body>
-
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
