@@ -44,6 +44,13 @@ Research Experience
 
 - ***Deployment***: Developed an efficient pipeline with pre-processing and post-processing stages running on GPU, and model inference on NPU. Integrated this algorithmic module into the XIAOMI 12 Pro smartphone.
 
+> Real-World Blind Super-Resolution via Feature Matching:
+- ***Constructed a VQGAN based model***: Incorporated Residual Modules, Swin Transformer Block, Codebook, and Feature Matching Module to blind enhance video resolution from 720p to 1440p.
+- ***HR dataset build***: Build and augmented high-resolution (HR) dataset from <a href="https://data.vision.ee.ethz.ch/cvl/DIV2K/">DIV2K</a>, <a href="https://arxiv.org/abs/1707.02921">Flickr2K</a>, <a href="https://ieeexplore.ieee.org/document/9021973">DIV8K</a> and real-word datasets via texture filtering.
+- ***Data Enhancement***: Used pretrained models <a href="https://arxiv.org/abs/2202.13142">FeMaSR</a> <a href="https://arxiv.org/abs/2107.10833">Real-ESRGAN</a>, <a href="https://ckkelvinchan.github.io/projects/BasicVSR++/">BasicSR++</a> to further enhance high-frequency textures via image filtering and patch filtering.
+- ***Loss Function Design***: Formulated L2 loss, perceptual loss, gan loss and codebook loss functions to ensure robust model performance in real-world.
+- ***Model Pruning***: Pruned model from 1600G FLOPs to 320G FLOPs (input shape is 512x512x3) with almost the same performance.
+
 **Research Intern, JD AI Research**, *Advisor: Dr. [Tao Mei](https://scholar.google.com.hk/citations?user=7Yq4wf4AAAAJ&hl=zh-CN)* (05/2018 - 09/2018)
 
 > CVPR Workshop, LIP Contest [(Ranked 2nd)](https://sysu-hcp.net/lip/parsing_lb.php?type=2)

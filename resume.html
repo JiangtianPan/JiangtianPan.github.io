@@ -116,7 +116,7 @@
 		<h5 class="mb-2">Scholarships and Awards</h5>
 		<ul>
 			<li>2018: AI Star Intern in the JD AI Research [10/50]</li>
-      <li>2018: Ranked 2nd in the CVPR 2018 Workshop Contest <a href="https://sysu-hcp.net/lip/parsing_lb.php?type=2">LIP</a></li>
+      <li>2018: Ranked 2nd in the CVPR 2018 Workshop Contest <a href="https://sysu-hcp.net/lip/parsing_lb.php?type=2">L.I.P</a></li>
       <li>2017: AAA Graduate Student [10/450]</li>
       <li>2016: Interdisciplinary Contest in Modeling (Honorable Mention)</li>
       <li>2015: WHU Outstanding Student Leader [2/60]</li>
@@ -129,17 +129,26 @@
         <li>Real-Time Video Quality Enhancement for Mobile Devices</li>
         <ul>
         <li><b>Proposed a CNN based model</b>: Incorporated an attention module, skip connections, residual modules, and mask modules to optimize video quality in real-time.</li>
-        <li><b>Optimized Computational Efficiency</b>: From 330 GOPs to 12 GOPs by implementing ***Space2Depth*** modules, ***Distillation***, and ***Pruning***. Achieved inference time reduction from 100+ ms to 15 ms on Qualcomm Snapdragon 8475 platform.</li>
+        <li><b>Optimized Computational Efficiency</b>: From 330 GOPs to 12 GOPs by implementing <b>Space2Depth</b>, <b>Distillation</b>, and <b>Pruning</b>. Achieved inference time reduction from 100+ ms to 15 ms on Qualcomm Snapdragon 8475 platform.</li>
         <li><b>Noise Data Collection</b>: Proposed a unique approach to collect noise from real-world data, enhancing the training dataset for improved model robustness.</li>
         <li><b>Data Augmentation Techniques</b>: Innovated data augmentation strategies including ISP simulation, brightness adjustment, motion simulation, and random disturbance to improve model adaptability.</li>
         <li><b>Loss Function Design</b>: Formulated gradient loss, edge loss, and mask loss functions to ensure robust model performance under challenging conditions.</li>
         <li><b>Deployment</b>: Developed an efficient pipeline with pre-processing and post-processing stages running on GPU, and model inference on NPU. Integrated this algorithmic module into the XIAOMI 12 Pro smartphone.</li>
         </ul>
+
+		<li>Real-World Blind Super-Resolution via Feature Matching</li>
+        <ul>
+        <li><b>Constructed a VQGAN based model</b>: Incorporated Residual Modules, Swin Transformer Block, Codebook, and Feature Matching Module to blind enhance video resolution from 720p to 1440p.</li>
+        <li><b>HR dataset build</b>: Build and augmented high-resolution (HR) dataset from <a href="https://data.vision.ee.ethz.ch/cvl/DIV2K/">DIV2K</a>, <a href="https://arxiv.org/abs/1707.02921">Flickr2K</a>, <a href="https://ieeexplore.ieee.org/document/9021973">DIV8K</a> and real-word datasets via texture filtering.
+        <li><b>Data Enhancement</b>: Used pretrained models <a href="https://arxiv.org/abs/2202.13142">FeMaSR</a> <a href="https://arxiv.org/abs/2107.10833">Real-ESRGAN</a>, <a href="https://ckkelvinchan.github.io/projects/BasicVSR++/">BasicSR++</a> to further enhance high-frequency textures via image filtering and patch filtering.</li>
+        <li><b>Loss Function Design</b>: Formulated L2 loss, perceptual loss, gan loss and codebook loss functions to ensure robust model performance in real-world.</li>
+        <li><b>Model Pruning</b>: Pruned model from 1600G FLOPs to 320G FLOPs (input shape is 512x512x3) with almost the same performance.</li>
+        </ul>
 	  </ul>
 
     <ul>
 			<h6>[05/2018 - 09/2018] Research Intern, JD AI Research, Advisor: Prof. <a href="https://scholar.google.com.hk/citations?user=7Yq4wf4AAAAJ&hl=zh-CN">Tao Mei</a></h6>
-        <li>CVPR 2018 Workshop, LIP Contest, <a href="https://sysu-hcp.net/lip/parsing_lb.php?type=2">Ranked 2nd</a></li>
+        <li>CVPR 2018 Workshop, L.I.P Contest, <a href="https://sysu-hcp.net/lip/parsing_lb.php?type=2">Ranked 2nd</a></li>
         <ul>
         <li><b>Data Augmentation</b>: Enhanced the training dataset by implementing image rotations, reversals, and applying Mask-RCNN for multi-human object detection.</li>
         <li><b>Model Fine-Tuning and Fusion</b>: Customized and fine-tuned state-of-the-art networks including JPP-Net, SS-NAN, DenseNet, RefineNet, and UPerNet on the LIP training set. Employed fusion strategies and integrated key-point data for performance refinement.</li>
@@ -154,9 +163,9 @@
       <li>Real-Time Frame Interposition and Motion Deblur in Mobile Devices</li>
       <ul>
       <li><b>CNN Construction</b>: Constructed a sophisticated two-stage model rooted in <a href="https://arxiv.org/pdf/1712.00080.pdf">SuperSloMo</a> architecture, focusing on optical flow prediction and frame restoration.</li>
-      <li><b>Computational Efficiency</b>: From 330 GOPs to 12 GOPs by implementing <b>Space2Depth</b> module, <b>Distillation</b>, and <b>Pruning</b>. Achieved inference time reduction from 100+ ms to 15 ms on Qualcomm Snapdragon 8475 platform.</li>
-      <li><b>Unsupervised Learning Strategy</b>: Proposed an unsupervised learning approach, enabling effective model training on Adobe240fps and UCF101 datasets.</li>
-      <li><b>Parallel Computing Pipeline Built</b>: Engineered a high-performance computing pipeline utilizing OpenCL for GPU-based calculations and VCap for NPU operations. Achieved a substantial reduction in pipeline latency, from 150 ms/frame to 25 ms/frame.</li>
+      <li><b>Computational Efficiency</b>: Reduced model FLOPs significantly by employing distillation and pruning techniques.</li>
+      <li><b>Unsupervised Learning Strategy</b>: Proposed an unsupervised learning approach, enabling effective model training on <a href="http://www.cs.ubc.ca/labs/imager/tr/2017/DeepVideoDeblurring/">Adobe240fps</a> and <a href="https://www.crcv.ucf.edu/data/UCF101.php">UCF101</a> datasets.</li>
+      <li><b>Parallel Computing Pipeline Built</b>: Engineered a high-performance computing pipeline utilizing OpenCL for GPU-based calculations and VCap for NPU operations. Achieved a substantial reduction in pipeline latency, from 7 fps to 40 fps.</li>
       </ul>
 
       <li>Face Clustering in Digital Album</li>
@@ -170,9 +179,9 @@
       <li>Real-Time Human Segmentation in Mobile Devices</li>
       <ul>
       <li><b>CNN Construction</b>: Developed an Encoder-Decoder model utilizing <a href="https://arxiv.org/pdf/1505.04597.pdf">UNet</a> and <a href="https://arxiv.org/pdf/1704.04861.pdf">Depthwise Separable Convolution</a> techniques, implemented in TensorFlow.</li>
-      <li><b>Data Augmentation</b>: Expanded the PFCN dataset (18,698 images) and the vivo dataset (5,000 images) by applying a series of augmentation techniques including cropping, flipping, shifting, zooming, and alpha blending, resulting in over 60,000 augmented images.</li>
+      <li><b>Data Augmentation</b>: Expanded the <a href="http://xiaoyongshen.me/webpage_portrait/index.html">PFCN</a> dataset (18,698 images) and the vivo dataset (5,000 images) by applying a series of augmentation techniques including cropping, flipping, shifting, zooming, and alpha blending, resulting in over 60,000 augmented images.</li>
       <li><b>Inter-Frame Consistency</b>: Introduced an alpha blending technique to maintain inter-frame consistency during the processing stage.</li>
-      <li><b>Computational Efficiency</b>: Improved model efficiency by applying distillation and pruning strategies, reducing inference time from 40 ms/frame to 13 ms/frame on Qualcomm Snapdragon 855 platforms.</li>
+      <li><b>Computational Efficiency</b>: Improved model efficiency by applying distillation and pruning strategies, reducing inference time from 25 fps to 75 fps on Qualcomm Snapdragon 855 platforms.</li>
       </ul>
 	  </ul>
 
@@ -184,7 +193,7 @@
     <h5 class="mb-2">Skills</h5>
     <ul>
       <li><b>Programming</b>: Python, Java, MATLAB, C++, OpenCL, CUDA </li>
-      <li><b>Deep Learning Framework</b>: PyTorch, TensorFlow, TFLite, MegEngine</li>
+      <li><b>Deep Learning Framework</b>: MegEngine, PyTorch, TensorFlow, TFLite</li>
       <li><b>Computer Vision Tools</b>: OpenCV, Numpy, BasicSR</li>
       <li><b>Professional Fields</b>: Low-Level Vision, Image/Video Quality Enhancement, Real-Time CNN for Mobile Device</li>
     </ul>
