@@ -31,7 +31,7 @@ Research Experience
 ---------
 **CV Researcher, Megvii (Face++) Research**, *Advisor: Dr. [Yuzhi Wang](https://scholar.google.com/citations?user=JzBbU18AAAAJ&hl=en)* (07/2021 - present)
 
-> Real-Time Video Quality Enhancement for Mobile Devices:
+<!-- > Real-Time Video Quality Enhancement for Mobile Devices:
 - ***Proposed a CNN based model***: Incorporated an attention module, skip connections, residual modules, and mask modules to optimize video quality in real-time.
 
 - ***Optimized Computational Efficiency***: From 330 GOPs to 12 GOPs by implementing ***Space2Depth*** modules, ***Distillation***, and ***Pruning***. Achieved inference time reduction from 100+ ms to 15 ms on Qualcomm Snapdragon 8475 platform.
@@ -42,7 +42,16 @@ Research Experience
 
 - ***Loss Function Design***: Formulated gradient loss, edge loss, and mask loss functions to ensure robust model performance under challenging conditions.
 
-- ***Deployment***: Developed an efficient pipeline with pre-processing and post-processing stages running on GPU, and model inference on NPU. Integrated this algorithmic module into the XIAOMI 12 Pro smartphone.
+- ***Deployment***: Developed an efficient pipeline with pre-processing and post-processing stages running on GPU, and model inference on NPU. Integrated this algorithmic module into the XIAOMI 12 Pro smartphone. -->
+
+> Real-Time Frame Interposition and Motion Deblur in Mobile Devices:
+- **CNN Construction**: Constructed a sophisticated two-stage model rooted in [SuperSloMo](https://arxiv.org/pdf/1712.00080.pdf) architecture, focusing on optical flow prediction and frame restoration.
+
+- **Computational Efficiency**: Reduced model FLOPs significantly by employing distillation and pruning techniques.
+
+- **Unsupervised Learning Strategy**: Proposed an unsupervised learning approach, enabling effective model training on Adobe240fps and UCF101 datasets.
+
+- **Parallel Computing Pipeline Built**: Engineered a high-performance computing pipeline utilizing OpenCL for GPU-based calculations and VCap for NPU operations. Achieved a substantial reduction in pipeline latency, from 150 ms/frame to 25 ms/frame.
 
 > Real-World Blind Super-Resolution via Feature Matching:
 - ***Constructed a VQGAN based model***: Incorporated Residual Modules, Swin Transformer Block, Codebook, and Feature Matching Module to blind enhance video resolution from 720p to 1440p.
@@ -78,14 +87,14 @@ Research Experience
 Professional Experience
 ---------
 **CV Engineer, vivo AI Research**, (07/2019 - 06/2021)
-> Real-Time Frame Interposition and Motion Deblur in Mobile Devices:
+<!-- > Real-Time Frame Interposition and Motion Deblur in Mobile Devices:
 - **CNN Construction**: Constructed a sophisticated two-stage model rooted in [SuperSloMo](https://arxiv.org/pdf/1712.00080.pdf) architecture, focusing on optical flow prediction and frame restoration.
 
 - **Computational Efficiency**: Reduced model FLOPs significantly by employing distillation and pruning techniques.
 
 - **Unsupervised Learning Strategy**: Proposed an unsupervised learning approach, enabling effective model training on Adobe240fps and UCF101 datasets.
 
-- **Parallel Computing Pipeline Built**: Engineered a high-performance computing pipeline utilizing OpenCL for GPU-based calculations and VCap for NPU operations. Achieved a substantial reduction in pipeline latency, from 150 ms/frame to 25 ms/frame.
+- **Parallel Computing Pipeline Built**: Engineered a high-performance computing pipeline utilizing OpenCL for GPU-based calculations and VCap for NPU operations. Achieved a substantial reduction in pipeline latency, from 150 ms/frame to 25 ms/frame. -->
 
 > Face Clustering in Digital Album:
 - **CNN-based Facial Feature Extraction**: Engineered a Convolutional Neural Network (CNN) model specifically tailored for the extraction of human facial features.
@@ -106,6 +115,19 @@ Professional Experience
 - **Inter-Frame Consistency**: Introduced an alpha blending technique to maintain inter-frame consistency during the processing stage.
 
 - **Computational Efficiency**: Improved model efficiency by applying distillation and pruning strategies, reducing inference time from 40 ms/frame to 13 ms/frame on Qualcomm Snapdragon 855 platforms.
+
+> Real-Time Video Quality Enhancement for Mobile Devices:
+- ***Proposed a CNN based model***: Incorporated an attention module, skip connections, residual modules, and mask modules to optimize video quality in real-time.
+
+- ***Optimized Computational Efficiency***: From 330 GOPs to 12 GOPs by implementing ***Space2Depth*** modules, ***Distillation***, and ***Pruning***. Achieved inference time reduction from 100+ ms to 15 ms on Qualcomm Snapdragon 8475 platform.
+
+- ***Noise Data Collection***: Proposed a unique approach to collect noise from real-world data, enhancing the training dataset for improved model robustness.
+
+- ***Data Augmentation Techniques***: Innovated data augmentation strategies including ISP simulation, brightness adjustment, motion simulation, and random disturbance to improve model adaptability.
+
+- ***Loss Function Design***: Formulated gradient loss, edge loss, and mask loss functions to ensure robust model performance under challenging conditions.
+
+- ***Deployment***: Developed an efficient pipeline with pre-processing and post-processing stages running on GPU, and model inference on NPU. Integrated this algorithmic module into the XIAOMI 12 Pro smartphone.
 
 Skills
 ------
