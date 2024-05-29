@@ -126,15 +126,23 @@
     <h5 class="mb-2">Research Experience</h5>
 		<ul>
 			<h6>[07/2021 - Present] CV Researcher, Megvii (Face++) Research, Advisor: Dr. <a href="https://scholar.google.com/citations?user=JzBbU18AAAAJ&hl=en">Yuzhi Wang</a></h6>
-        <li>Real-Time Video Quality Enhancement for Mobile Devices</li>
+        <!-- <li>Real-Time Video Quality Enhancement for Mobile Devices</li>
         <ul>
         <li><b>Proposed a CNN based model</b>: Incorporated an attention module, skip connections, residual modules, and mask modules to optimize video quality in real-time.</li>
         <li><b>Optimized Computational Efficiency</b>: From 330 GOPs to 12 GOPs by implementing <b>Space2Depth</b>, <b>Distillation</b>, and <b>Pruning</b>. Achieved inference time reduction from 100+ ms to 15 ms on Qualcomm Snapdragon 8475 platform.</li>
         <li><b>Noise Data Collection</b>: Proposed a unique approach to collect noise from real-world data, enhancing the training dataset for improved model robustness.</li>
         <li><b>Data Augmentation Techniques</b>: Innovated data augmentation strategies including ISP simulation, brightness adjustment, motion simulation, and random disturbance to improve model adaptability.</li>
         <li><b>Loss Function Design</b>: Formulated gradient loss, edge loss, and mask loss functions to ensure robust model performance under challenging conditions.</li>
-        <li><b>Deployment</b>: Developed an efficient pipeline with pre-processing and post-processing stages running on GPU, and model inference on NPU. Integrated this algorithmic module into the XIAOMI 12 Pro smartphone.</li>
-        </ul>
+        <li><b>Deployment</b>: Developed an efficient pipeline with pre-processing and post-processing stages running on GPU, and model inference on NPU. Integrated this algorithmic module into the XIAOMI 12 Pro smartphone.</li> -->
+        <!-- </ul> -->
+
+		<li>Real-Time Frame Interposition and Motion Deblur in Mobile Devices</li>
+		<ul>
+		<li><b>CNN Construction</b>: Constructed a sophisticated two-stage model rooted in <a href="https://arxiv.org/pdf/1712.00080.pdf">SuperSloMo</a> architecture, focusing on optical flow prediction and frame restoration.</li>
+		<li><b>Computational Efficiency</b>: Reduced model FLOPs significantly by employing distillation and pruning techniques.</li>
+		<li><b>Unsupervised Learning Strategy</b>: Proposed an unsupervised learning approach, enabling effective model training on <a href="http://www.cs.ubc.ca/labs/imager/tr/2017/DeepVideoDeblurring/">Adobe240fps</a> and <a href="https://www.crcv.ucf.edu/data/UCF101.php">UCF101</a> datasets.</li>
+		<li><b>Parallel Computing Pipeline Built</b>: Engineered a high-performance computing pipeline utilizing OpenCL for GPU-based calculations and VCap for NPU operations. Achieved a substantial reduction in pipeline latency, from 7 fps to 40 fps.</li>
+		</ul>
 
 		<li>Real-World Blind Super-Resolution via Feature Matching</li>
         <ul>
@@ -160,13 +168,13 @@
     <h5 class="mb-2">Professional Experience</h5>
     <ul>
 			<h6>[07/2019 - 06/2021] CV Engineer, vivo AI Research</h6>
-      <li>Real-Time Frame Interposition and Motion Deblur in Mobile Devices</li>
+      <!-- <li>Real-Time Frame Interposition and Motion Deblur in Mobile Devices</li>
       <ul>
       <li><b>CNN Construction</b>: Constructed a sophisticated two-stage model rooted in <a href="https://arxiv.org/pdf/1712.00080.pdf">SuperSloMo</a> architecture, focusing on optical flow prediction and frame restoration.</li>
       <li><b>Computational Efficiency</b>: Reduced model FLOPs significantly by employing distillation and pruning techniques.</li>
       <li><b>Unsupervised Learning Strategy</b>: Proposed an unsupervised learning approach, enabling effective model training on <a href="http://www.cs.ubc.ca/labs/imager/tr/2017/DeepVideoDeblurring/">Adobe240fps</a> and <a href="https://www.crcv.ucf.edu/data/UCF101.php">UCF101</a> datasets.</li>
       <li><b>Parallel Computing Pipeline Built</b>: Engineered a high-performance computing pipeline utilizing OpenCL for GPU-based calculations and VCap for NPU operations. Achieved a substantial reduction in pipeline latency, from 7 fps to 40 fps.</li>
-      </ul>
+      </ul> -->
 
       <li>Face Clustering in Digital Album</li>
       <ul>
@@ -183,7 +191,17 @@
       <li><b>Inter-Frame Consistency</b>: Introduced an alpha blending technique to maintain inter-frame consistency during the processing stage.</li>
       <li><b>Computational Efficiency</b>: Improved model efficiency by applying distillation and pruning strategies, reducing inference time from 25 fps to 75 fps on Qualcomm Snapdragon 855 platforms.</li>
       </ul>
-	  </ul>
+
+	  <li>Real-Time Video Quality Enhancement for Mobile Devices</li>
+        <ul>
+        <li><b>Proposed a CNN based model</b>: Incorporated an attention module, skip connections, residual modules, and mask modules to optimize video quality in real-time.</li>
+        <li><b>Optimized Computational Efficiency</b>: From 330 GOPs to 12 GOPs by implementing <b>Space2Depth</b>, <b>Distillation</b>, and <b>Pruning</b>. Achieved inference time reduction from 100+ ms to 15 ms on Qualcomm Snapdragon 8475 platform.</li>
+        <li><b>Noise Data Collection</b>: Proposed a unique approach to collect noise from real-world data, enhancing the training dataset for improved model robustness.</li>
+        <li><b>Data Augmentation Techniques</b>: Innovated data augmentation strategies including ISP simulation, brightness adjustment, motion simulation, and random disturbance to improve model adaptability.</li>
+        <li><b>Loss Function Design</b>: Formulated gradient loss, edge loss, and mask loss functions to ensure robust model performance under challenging conditions.</li>
+        <li><b>Deployment</b>: Developed an efficient pipeline with pre-processing and post-processing stages running on GPU, and model inference on NPU. Integrated this algorithmic module into the XIAOMI 12 Pro smartphone.</li>
+		</ul>
+	</ul>
 
     <h5 class="mb-2">Academic Publication</h5>
 		<ul>
