@@ -3,8 +3,6 @@
   <head>
   	<title>Yukin Pan</title>
     <meta charset="utf-8">
-    <!-- <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="cache-control" content=" no-cache" > -->
     <meta http-equiv="expires" content="0" >
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -48,13 +46,14 @@
             background-color: #0d6efd;
             color: white;
             border: none;
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 4px;
             text-decoration: none;
             display: inline-block;
             margin-right: 10px;
             margin-top: 10px;
             font-size: 0.9rem;
+            transition: background-color 0.2s;
         }
         .btn-demo:hover {
             background-color: #0b5ed7;
@@ -64,66 +63,18 @@
             background-color: #6c757d;
             color: white;
             border: none;
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 4px;
             text-decoration: none;
             display: inline-block;
             margin-right: 10px;
             margin-top: 10px;
             font-size: 0.9rem;
+            transition: background-color 0.2s;
         }
         .btn-code:hover {
             background-color: #5c636a;
             color: white;
-        }
-        
-        /* 网页预览容器 - 重新设计 */
-        .web-preview-container {
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 15px;
-            width: 100%;
-            height: 200px;
-            position: relative;
-            background: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        /* 使用固定比例的iframe包装器 */
-        .iframe-wrapper {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .iframe-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            transform: scale(0.3); /* 缩小到30% */
-            transform-origin: 0 0;
-        }
-        
-        /* 替代方案：使用图片预览 */
-        .image-preview {
-            width: 100%;
-            height: 100%;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .image-preview:hover {
-            transform: scale(1.02);
         }
         
         /* 视频演示容器 */
@@ -171,6 +122,11 @@
             .video-comparison-container {
                 flex-direction: column;
             }
+        }
+        
+        .button-container {
+            margin-top: 15px;
+            text-align: center;
         }
     </style>
   </head>
@@ -242,27 +198,10 @@
                         <span class="tech-badge">WebSocket</span>
                     </div>
                     
-                    <div class="mt-2">
+                    <div class="button-container">
                         <a href="https://github.com/JiangtianPan/lakebbs" class="btn-code" target="_blank">View Code</a>
                         <a href="https://lakebbs.ca" class="btn-demo" target="_blank">Live Demo</a>
                     </div>
-                    
-                    <!-- 方案1：使用iframe -->
-                    <div class="web-preview-container">
-                        <div class="iframe-wrapper">
-                            <iframe src="https://lakebbs.ca" title="Canada Local Chinese Forum Preview"></iframe>
-                        </div>
-                    </div>
-                    
-                    <!-- 方案2：使用静态图片预览（如果需要更稳定的显示） -->
-                    <!--
-                    <div class="web-preview-container">
-                        <div class="image-preview" style="background-image: url('path/to/your/screenshot.jpg');" 
-                             onclick="window.open('https://jiangtianpan.github.io', '_blank')"></div>
-                    </div>
-                    -->
-                    
-                    <p class="text-muted text-center mt-2" style="font-size: 0.8rem;">Website preview - click "Live Demo" to view full site</p>
                 </div>
                 
                 <div class="demo-card">
@@ -276,18 +215,10 @@
                         <span class="tech-badge">Google Maps API</span>
                     </div>
                     
-                    <div class="mt-2">
+                    <div class="button-container">
                         <a href="https://github.com/JiangtianPan/local-feast-platform" class="btn-code" target="_blank">View Code</a>
                         <a href="https://tea-bay-sweet.lovable.app/" class="btn-demo" target="_blank">Live Demo</a>
                     </div>
-                    
-                    <div class="web-preview-container">
-                        <div class="iframe-wrapper">
-                            <iframe src="https://tea-bay-sweet.lovable.app/" title="Canada Local Restaurant Website Preview"></iframe>
-                        </div>
-                    </div>
-                    
-                    <p class="text-muted text-center mt-2" style="font-size: 0.8rem;">Website preview - click "Live Demo" to view full site</p>
                 </div>
             </div>
 
@@ -395,20 +326,5 @@
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-    
-    <script>
-        // 可选：添加JavaScript来调整iframe的缩放比例
-        document.addEventListener('DOMContentLoaded', function() {
-            const iframes = document.querySelectorAll('.iframe-wrapper iframe');
-            
-            iframes.forEach(iframe => {
-                // 设置iframe加载完成后调整缩放
-                iframe.onload = function() {
-                    // 可以根据需要进一步调整缩放比例
-                    // 当前设置为0.3，可以根据实际效果调整
-                };
-            });
-        });
-    </script>
   </body>
 </html>
