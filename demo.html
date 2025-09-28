@@ -77,27 +77,53 @@
             color: white;
         }
         
-        /* 网页预览容器 - 缩略图样式 */
+        /* 网页预览容器 - 重新设计 */
         .web-preview-container {
             border: 1px solid #ddd;
             border-radius: 4px;
             overflow: hidden;
             margin-top: 15px;
             width: 100%;
-            height: 200px; /* 更小的高度，更像缩略图 */
+            height: 200px;
             position: relative;
             background: #f5f5f5;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .web-preview-container iframe {
-            width: 480px;  /* 固定宽度 */
-            height: 270px; /* 固定高度，保持16:9比例 */
+        
+        /* 使用固定比例的iframe包装器 */
+        .iframe-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             border: none;
-            transform: scale(0.3); /* 进一步缩小 */
+            transform: scale(0.3); /* 缩小到30% */
             transform-origin: 0 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* 替代方案：使用图片预览 */
+        .image-preview {
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .image-preview:hover {
+            transform: scale(1.02);
         }
         
         /* 视频演示容器 */
@@ -144,10 +170,6 @@
         @media (max-width: 768px) {
             .video-comparison-container {
                 flex-direction: column;
-            }
-            .web-preview-container iframe {
-                width: 280px;
-                height: 157px;
             }
         }
     </style>
@@ -225,9 +247,21 @@
                         <a href="https://lakebbs.ca" class="btn-demo" target="_blank">Live Demo</a>
                     </div>
                     
+                    <!-- 方案1：使用iframe -->
                     <div class="web-preview-container">
-                        <iframe src="https://lakebbs.ca" title="Canada Local Chinese Forum Preview"></iframe>
+                        <div class="iframe-wrapper">
+                            <iframe src="https://lakebbs.ca" title="Canada Local Chinese Forum Preview"></iframe>
+                        </div>
                     </div>
+                    
+                    <!-- 方案2：使用静态图片预览（如果需要更稳定的显示） -->
+                    <!--
+                    <div class="web-preview-container">
+                        <div class="image-preview" style="background-image: url('path/to/your/screenshot.jpg');" 
+                             onclick="window.open('https://jiangtianpan.github.io', '_blank')"></div>
+                    </div>
+                    -->
+                    
                     <p class="text-muted text-center mt-2" style="font-size: 0.8rem;">Website preview - click "Live Demo" to view full site</p>
                 </div>
                 
@@ -248,8 +282,11 @@
                     </div>
                     
                     <div class="web-preview-container">
-                        <iframe src="https://tea-bay-sweet.lovable.app/" title="Canada Local Restaurant Website Preview"></iframe>
+                        <div class="iframe-wrapper">
+                            <iframe src="https://tea-bay-sweet.lovable.app/" title="Canada Local Restaurant Website Preview"></iframe>
+                        </div>
                     </div>
+                    
                     <p class="text-muted text-center mt-2" style="font-size: 0.8rem;">Website preview - click "Live Demo" to view full site</p>
                 </div>
             </div>
@@ -358,5 +395,20 @@
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    
+    <script>
+        // 可选：添加JavaScript来调整iframe的缩放比例
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframes = document.querySelectorAll('.iframe-wrapper iframe');
+            
+            iframes.forEach(iframe => {
+                // 设置iframe加载完成后调整缩放
+                iframe.onload = function() {
+                    // 可以根据需要进一步调整缩放比例
+                    // 当前设置为0.3，可以根据实际效果调整
+                };
+            });
+        });
+    </script>
   </body>
 </html>
