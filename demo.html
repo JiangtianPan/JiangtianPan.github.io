@@ -1,330 +1,254 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Yukin Pan</title>
     <meta charset="utf-8">
-    <meta http-equiv="expires" content="0" >
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link href="//cdn.bootcss.com/skeleton/2.0.4/skeleton.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <style>
-        /* 统一的Demo卡片样式 */
-        .demo-container {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 25px;
-            margin-bottom: 30px;
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demos — Yukin Pan</title>
+    <meta name="description" content="Project demos by Yukin (Jiangtian) Pan: real-time video quality enhancement, super resolution, human segmentation and frame interpolation on mobile devices, plus web development work.">
+    <meta name="author" content="Yukin (Jiangtian) Pan">
+    <meta name="theme-color" content="#fdfdfc">
+    <link rel="canonical" href="https://jiangtianpan.github.io/demo.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Demos — Yukin Pan">
+    <meta property="og:description" content="Real-time video restoration, super resolution and frame interpolation running on mobile devices.">
+    <meta property="og:url" content="https://jiangtianpan.github.io/demo.html">
+    <meta property="og:image" content="https://jiangtianpan.github.io/documents/demo/posters/SVQ_out.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='system-ui'>Y</text></svg>">
+    <link rel="stylesheet" href="css/site.css">
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") {
+          document.documentElement.setAttribute("data-theme", t);
         }
-        .demo-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            padding: 20px;
-            margin-bottom: 30px;
-            transition: transform 0.2s;
-            background: #f9f9f9;
-        }
-        .demo-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        .tech-badge {
-            background-color: #e9ecef;
-            color: #495057;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 8px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-        .btn-demo {
-            background-color: #0d6efd;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            display: inline-block;
-            margin-right: 10px;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            transition: background-color 0.2s;
-        }
-        .btn-demo:hover {
-            background-color: #0b5ed7;
-            color: white;
-        }
-        .btn-code {
-            background-color: #6c757d;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            display: inline-block;
-            margin-right: 10px;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            transition: background-color 0.2s;
-        }
-        .btn-code:hover {
-            background-color: #5c636a;
-            color: white;
-        }
-        
-        /* 视频演示容器 */
-        .video-comparison-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
-            gap: 20px;
-        }
-        .video-container {
-            flex: 1;
-            text-align: center;
-        }
-        .video-container video {
-            width: 100%;
-            max-width: 480px;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .video-label {
-            margin-top: 8px;
-            font-weight: 500;
-            color: #555;
-        }
-        
-        /* 图片演示容器 */
-        .image-container {
-            text-align: center;
-            margin-top: 15px;
-        }
-        .image-container img {
-            max-width: 100%;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        /* 原有的样式调整 */
-        body{
-            background: #f8f9fa;
-            margin:0;
-        }
-        
-        /* 响应式调整 */
-        @media (max-width: 768px) {
-            .video-comparison-container {
-                flex-direction: column;
-            }
-        }
-        
-        .button-container {
-            margin-top: 15px;
-            text-align: center;
-        }
-    </style>
+      } catch (e) {}
+    </script>
   </head>
-  <body>
-		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-				<div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary" onclick="openNav()">
-						<i class="fa fa-bars"></i>
-						<span class="sr-only">Toggle Menu</span>
-	        		</button>
-        		</div>
-				<div class="p-4 pt-5">
-		  			<h3><a href="JiangtianPan.github.io" class="logo">Yukin Pan</a></h3>
-	       			<ul class="list-unstyled components mb-5">
-	          	<li class="active">
-					<a href="index.html">HOME</a>
-	          	</li>
 
-                <li class="active">
-                    <a href="resume.html">Resume</a>
-                </li>
+  <body class="page--wide">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-                <li class="active">
-                    <a href="demo.html">Demo</a>
-                </li>
-	        	</ul>
-                <div class="mb-5 contact">
-                    <h6 class="h6">contact</h6>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
-                            </svg>
-                            <a href = "mailto: jiangtianpan@hotmail.com"> jiangtianpan@hotmail.com</a>
-                    </div>
-                    
-                    <div class="contact-sub">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
-                        <a href = "https://github.com/JiangtianPan">Yukin Pan</a>
-                    </div>
-                </div>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="index.html">Yukin Pan</a>
+        <nav class="nav" aria-label="Main">
+          <a class="nav__link" href="index.html">Home</a>
+          <a class="nav__link" href="resume.html">Resume</a>
+          <a class="nav__link" href="demo.html" aria-current="page">Demos</a>
+          <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
 
-                <div class="footer">
-                    <p>
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved to Yukin Pan
-                    </p>
-                </div>
-            </nav>
-        </div>
+    <main id="main">
+      <div class="container">
+        <h1 class="page-title">Demos</h1>
+        <p class="muted">
+          Selected work — on-device video restoration and a couple of web projects.
+          Videos load only when you press play.
+        </p>
 
+        <!-- Video processing --------------------------------------------- -->
+        <section class="section">
+          <h2 class="section__title">On-Device Video Processing</h2>
 
-        <!-- Page Content  -->
-        <div id="content" class="p-4 p-md-5 pt-5">
-            <!-- Web开发项目展示 -->
-            <div class="demo-container">
-                <h4 class="mb-4">Web Development Projects</h4>
-                
-                <div class="demo-card">
-                    <h5>Canada Local Chinese Forum</h5>
-                    <p>A full-featured online discussion platform built with modern web technologies.</p>
-                    
-                    <div>
-                        <span class="tech-badge">Vue.js</span>
-                        <span class="tech-badge">Spring Boot</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">WebSocket</span>
-                    </div>
-                    
-                    <div class="button-container">
-                        <a href="https://github.com/JiangtianPan/lakebbs" class="btn-code" target="_blank">View Code</a>
-                        <a href="https://lakebbs.ca" class="btn-demo" target="_blank">Live Demo</a>
-                    </div>
-                </div>
-                
-                <div class="demo-card">
-                    <h5>Canada Local Restaurant Website</h5>
-                    <p>A food discovery and delivery platform with location-based services.</p>
-                    
-                    <div>
-                        <span class="tech-badge">React</span>
-                        <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">MongoDB</span>
-                        <span class="tech-badge">Google Maps API</span>
-                    </div>
-                    
-                    <div class="button-container">
-                        <a href="https://github.com/JiangtianPan/local-feast-platform" class="btn-code" target="_blank">View Code</a>
-                        <a href="https://tea-bay-sweet.lovable.app/" class="btn-demo" target="_blank">Live Demo</a>
-                    </div>
-                </div>
-            </div>
+          <div class="card-stack">
+            <article class="card demo" id="video-enhancement">
+              <h3 class="card__title">Video Quality Enhancement</h3>
+              <div class="card__body">
+                <ul>
+                  <li>Runs at 1080p&nbsp;60fps or 4K&nbsp;30fps on Qualcomm Snapdragon 8450 and above, in the raw pipeline.</li>
+                  <li>Runs at 1080p&nbsp;60fps or 4K&nbsp;30fps on Snapdragon 7450 and above, in the YUV pipeline.</li>
+                  <li>Footage recorded on a Xiaomi Mi 12 (2022).</li>
+                </ul>
+                <ul class="tags">
+                  <li class="tag">Denoising</li>
+                  <li class="tag">Real-time</li>
+                  <li class="tag">NPU + GPU</li>
+                  <li class="tag">12 GOPs</li>
+                </ul>
+              </div>
 
-            <!-- 视频处理项目 -->
-            <div class="demo-container">
-                <h4 class="mb-4">Video Processing Projects</h4>
-                
-                <div class="demo-card">
-                    <h5>Video Quality Enhancement for Mobile Devices</h5>
-                    <ul>
-                        <li>This algorithm can run with 1080p-60fps or 4K-30fps on Qualcom Snapdragon platform >= 8450 in Raw Pipeline.</li>
-                        <li>This algorithm can run with 1080p-60fps or 4K-30fps on Qualcom Snapdragon platform >= 7450 in YUV Pipeline.</li>
-                        <li>This video is recorded by using Mi 12 [2022].</li>
-                    </ul>
-                    
-                    <div class="video-comparison-container">
-                        <div class="video-container">
-                            <video controls title="Input">
-                                <source src="/documents/demo/SVQ_input.mp4" type="video/mp4">
-                                Sorry, this video is not supported in your browser.
-                            </video>
-                            <div class="video-label">Input</div>
-                        </div>
-                        <div class="video-container">
-                            <video controls title="Output">
-                                <source src="/documents/demo/SVQ_out.mp4" type="video/mp4">
-                                Sorry, this video is not supported in your browser.
-                            </video>
-                            <div class="video-label">Output</div>
-                        </div>
-                    </div>
-                </div>
+              <div class="media-pair">
+                <figure class="media">
+                  <video controls preload="none" playsinline poster="documents/demo/posters/SVQ_input.jpg">
+                    <source src="documents/demo/SVQ_input.mp4" type="video/mp4">
+                    Your browser cannot play this video.
+                  </video>
+                  <figcaption class="media__label">Input</figcaption>
+                </figure>
+                <figure class="media">
+                  <video controls preload="none" playsinline poster="documents/demo/posters/SVQ_out.jpg">
+                    <source src="documents/demo/SVQ_out.mp4" type="video/mp4">
+                    Your browser cannot play this video.
+                  </video>
+                  <figcaption class="media__label">Output</figcaption>
+                </figure>
+              </div>
+            </article>
 
-                <!-- 视频超分辨率 -->
-                <div class="demo-card">
-                    <h5>Video Super Resolution for Mobile Devices</h5>
-                    <ul>
-                        <li>This algorithm can run with 720p-24fps (super resolution 720p -> 1440p) on Qualcom Snapdragon platform >= 8475 in YUV Pipeline.</li>
-                        <li>This video is recorded by using Honor [2023].</li>
-                    </ul>
-                    
-                    <div class="image-container">
-                        <img src="documents/demo/SR_cmp.png" alt="Super Resolution Comparison">
-                    </div>
-                    
-                    <div class="video-comparison-container">
-                        <div class="video-container">
-                            <video controls title="Input">
-                                <source src="/documents/demo/SR_input.mp4" type="video/mp4">
-                                Sorry, this video is not supported in your browser.
-                            </video>
-                            <div class="video-label">Input</div>
-                        </div>
-                        <div class="video-container">
-                            <video controls title="Output">
-                                <source src="/documents/demo/SR_output.mp4" type="video/mp4">
-                                Sorry, this video is not supported in your browser.
-                            </video>
-                            <div class="video-label">Output</div>
-                        </div>
-                    </div>
-                </div>
+            <article class="card demo" id="super-resolution">
+              <h3 class="card__title">Video Super Resolution</h3>
+              <div class="card__body">
+                <ul>
+                  <li>Runs at 720p&nbsp;24fps, upscaling 720p → 1440p, on Qualcomm Snapdragon 8475 and above in the YUV pipeline.</li>
+                  <li>Footage recorded on an Honor device (2023).</li>
+                </ul>
+                <ul class="tags">
+                  <li class="tag">720p → 1440p</li>
+                  <li class="tag">VQGAN</li>
+                  <li class="tag">Swin Transformer</li>
+                  <li class="tag">320G FLOPs</li>
+                </ul>
+              </div>
 
-                <!-- 人体分割 -->
-                <div class="demo-card">
-                    <h5>Human Segmentation for Mobile Devices</h5>
-                    <ul>
-                        <li>This algorithm can run with 720p-30fps on Qualcom Snapdragon platform >= 765G in YUV Pipeline [in 2020].</li>
-                    </ul>
-                    
-                    <div class="image-container">
-                        <img src="documents/demo/seg.png" alt="Human Segmentation">
-                    </div>
-                </div>
+              <figure class="figure">
+                <img
+                  src="documents/demo/SR_cmp.png"
+                  alt="Side-by-side crops comparing the low-resolution input with the super-resolved output"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <figcaption>Detail comparison — input (left) versus super-resolved output (right).</figcaption>
+              </figure>
 
-                <!-- 帧插值 -->
-                <div class="demo-card">
-                    <h5>Frame Interpolation for Mobile Devices</h5>
-                    <ul>
-                        <li>This algorithm can run with 720p-30fps (frame interpolated 30fps -> 60fps) on Qualcom Snapdragon platform >= 8550 in YUV Pipeline.</li>
-                    </ul>
-                    
-                    <div class="video-comparison-container">
-                        <div class="video-container">
-                            <video controls title="Input">
-                                <source src="/documents/demo/MEMC_input.mp4" type="video/mp4">
-                                Sorry, this video is not supported in your browser.
-                            </video>
-                            <div class="video-label">Input</div>
-                        </div>
-                        <div class="video-container">
-                            <video controls title="Output">
-                                <source src="/documents/demo/MEMC_output.mp4" type="video/mp4">
-                                Sorry, this video is not supported in your browser.
-                            </video>
-                            <div class="video-label">Output</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <div class="media-pair">
+                <figure class="media">
+                  <video controls preload="none" playsinline poster="documents/demo/posters/SR_input.jpg">
+                    <source src="documents/demo/SR_input.mp4" type="video/mp4">
+                    Your browser cannot play this video.
+                  </video>
+                  <figcaption class="media__label">Input</figcaption>
+                </figure>
+                <figure class="media">
+                  <video controls preload="none" playsinline poster="documents/demo/posters/SR_output.jpg">
+                    <source src="documents/demo/SR_output.mp4" type="video/mp4">
+                    Your browser cannot play this video.
+                  </video>
+                  <figcaption class="media__label">Output</figcaption>
+                </figure>
+              </div>
+            </article>
 
-        </div>
+            <article class="card demo" id="human-segmentation">
+              <h3 class="card__title">Human Segmentation</h3>
+              <div class="card__body">
+                <ul>
+                  <li>Runs at 720p&nbsp;30fps on Qualcomm Snapdragon 765G and above in the YUV pipeline (2020).</li>
+                </ul>
+                <ul class="tags">
+                  <li class="tag">UNet</li>
+                  <li class="tag">Depthwise separable conv</li>
+                  <li class="tag">75 fps</li>
+                </ul>
+              </div>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+              <figure class="figure">
+                <img
+                  src="documents/demo/seg.png"
+                  alt="Human segmentation results showing extracted person masks over the original frames"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <figcaption>Segmentation masks produced in real time on device.</figcaption>
+              </figure>
+            </article>
+
+            <article class="card demo" id="frame-interpolation">
+              <h3 class="card__title">Frame Interpolation (MEMC)</h3>
+              <div class="card__body">
+                <ul>
+                  <li>Runs at 720p, interpolating 30fps → 60fps, on Qualcomm Snapdragon 8550 and above in the YUV pipeline.</li>
+                </ul>
+                <ul class="tags">
+                  <li class="tag">30 → 60 fps</li>
+                  <li class="tag">Optical flow</li>
+                  <li class="tag">Super SloMo</li>
+                  <li class="tag">OpenCL</li>
+                </ul>
+              </div>
+
+              <div class="media-pair">
+                <figure class="media">
+                  <video controls preload="none" playsinline poster="documents/demo/posters/MEMC_input.jpg">
+                    <source src="documents/demo/MEMC_input.mp4" type="video/mp4">
+                    Your browser cannot play this video.
+                  </video>
+                  <figcaption class="media__label">Input · 30 fps</figcaption>
+                </figure>
+                <figure class="media">
+                  <video controls preload="none" playsinline poster="documents/demo/posters/MEMC_output.jpg">
+                    <source src="documents/demo/MEMC_output.mp4" type="video/mp4">
+                    Your browser cannot play this video.
+                  </video>
+                  <figcaption class="media__label">Output · 60 fps</figcaption>
+                </figure>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Web development ---------------------------------------------- -->
+        <section class="section">
+          <h2 class="section__title">Web Development</h2>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3 class="card__title">Canada Local Chinese Forum</h3>
+              <p class="card__body">
+                A full-featured online discussion platform built with modern web technologies.
+              </p>
+              <ul class="tags">
+                <li class="tag">Vue.js</li>
+                <li class="tag">Spring Boot</li>
+                <li class="tag">MySQL</li>
+                <li class="tag">WebSocket</li>
+              </ul>
+              <div class="btn-row">
+                <a class="btn btn--primary" href="https://lakebbs.ca" target="_blank" rel="noopener">Live demo</a>
+                <a class="btn" href="https://github.com/JiangtianPan/lakebbs" target="_blank" rel="noopener">Source</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h3 class="card__title">Canada Local Restaurant Website</h3>
+              <p class="card__body">
+                A food discovery and delivery platform with location-based services.
+              </p>
+              <ul class="tags">
+                <li class="tag">React</li>
+                <li class="tag">Node.js</li>
+                <li class="tag">MongoDB</li>
+                <li class="tag">Google Maps API</li>
+              </ul>
+              <div class="btn-row">
+                <a class="btn btn--primary" href="https://tea-bay-sweet.lovable.app/" target="_blank" rel="noopener">Live demo</a>
+                <a class="btn" href="https://github.com/JiangtianPan/local-feast-platform" target="_blank" rel="noopener">Source</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>&copy; <span data-year>2025</span> Yukin Pan</span>
+        <a href="https://github.com/JiangtianPan/JiangtianPan.github.io">Source</a>
+      </div>
+    </footer>
+
+    <script src="js/site.js"></script>
   </body>
 </html>

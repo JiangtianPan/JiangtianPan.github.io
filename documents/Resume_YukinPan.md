@@ -29,7 +29,7 @@ Academic Publication
 
 Research Experience
 ---------
-**CV Researcher, Megvii (Face++) Research**, *Advisor: Dr. [Yuzhi Wang](https://scholar.google.com/citations?user=JzBbU18AAAAJ&hl=en)* (07/2021 - present)
+**CV Researcher, KUANGJINGBOXUAN**, *Advisor: Dr. [Yuzhi Wang](https://scholar.google.com/citations?user=JzBbU18AAAAJ&hl=en)* (07/2021 - present)
 
 <!-- > Real-Time Video Quality Enhancement for Mobile Devices:
 - ***Proposed a CNN based model***: Incorporated an attention module, skip connections, residual modules, and mask modules to optimize video quality in real-time.

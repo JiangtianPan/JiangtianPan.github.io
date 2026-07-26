@@ -1,110 +1,197 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Yukin Pan</title>
     <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link href="//cdn.bootcss.com/skeleton/2.0.4/skeleton.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yukin Pan — Computer Vision Researcher</title>
+    <meta name="description" content="Yukin (Jiangtian) Pan — computer vision researcher at KUANGJINGBOXUAN, working on low-level vision, video quality restoration and real-time CNNs for mobile devices.">
+    <meta name="author" content="Yukin (Jiangtian) Pan">
+    <meta name="theme-color" content="#fdfdfc">
+    <link rel="canonical" href="https://jiangtianpan.github.io/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yukin Pan — Computer Vision Researcher">
+    <meta property="og:description" content="Computer vision researcher working on low-level vision, video quality restoration and real-time CNNs for mobile devices.">
+    <meta property="og:url" content="https://jiangtianpan.github.io/">
+    <meta property="og:image" content="https://jiangtianpan.github.io/images/avatar.jpg">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='system-ui'>Y</text></svg>">
+    <link rel="stylesheet" href="css/site.css">
+    <script>
+      // Applied before first paint so the page never flashes the wrong palette.
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    </script>
   </head>
+
   <body>
-		
-		<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
-				<div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary" onclick="openNav()">
-						<i class="fa fa-bars"></i>
-						<span class="sr-only">Toggle Menu</span>
-	        		</button>
-        		</div>
-				<div class="p-4 pt-5">
-		  			<h3><a href="JiangtianPan.github.io" class="logo">Yukin Pan</a></h3>
-	       			 <ul class="list-unstyled components mb-5">
-	          			<li class="active">
-							<a href="index.html">HOME</a>
-	          			</li>
-						
-						<li class="active">
-							<a href="resume.html">Resume</a>
-	          			</li>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-						<li class="active">
-							<a href="demo.html">Demo</a>
-						</li>
-	        		</ul>
-					
-					<div class="mb-5 contact">
-						<h6 class="h6">contact</h6>
-						<div>
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
-								<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
-								</svg>
-								<a href = "mailto: jiangtianpan@hotmail.com"> jiangtianpan@hotmail.com</a>
-						</div>
-						
-						<div class="contact-sub">
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-								<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-							</svg>
-							<a href = "https://github.com/JiangtianPan">Yukin Pan</a>
-						</div>
-					</div>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="index.html">Yukin Pan</a>
+        <nav class="nav" aria-label="Main">
+          <a class="nav__link" href="index.html" aria-current="page">Home</a>
+          <a class="nav__link" href="resume.html">Resume</a>
+          <a class="nav__link" href="demo.html">Demos</a>
+          <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
 
-					<div class="footer">
-						<p>
-							Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved to Yukin Pan
-						</p>
-					</div>
+    <main id="main">
+      <div class="container">
+        <section class="hero">
+          <img
+            class="hero__avatar"
+            src="images/avatar.jpg"
+            width="800"
+            height="800"
+            alt="Yukin Pan's avatar: a customised LEGO minifigure labelled YubeccaToRekin"
+          >
 
-	      		</div>
-    		</nav>
+          <h1 class="hero__name">Yukin (Jiangtian) Pan</h1>
+          <p class="hero__role">Computer Vision Researcher · KUANGJINGBOXUAN</p>
 
-        <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5 pt-5">
-		<div class="row">
-			<div class="col-9">
-				<p>HI, I'm Yukin (Jiangtian) Pan. I am now a computer vision researcher at <a href="https://en.megvii.com/megvii_research">Megvii (Face++) Research</a>. Previously, I worked as an AI Engineer in the AI Lab of the biggest smartphone company <a href="https://www.vivo.com/en">vivo</a> and as an AI Research Intern in the top tech company <a href="https://jdcorporateblog.com/category/jd-technology/">JD AI Research</a> respectively. Before that, I obtained my Bachelor's degree and Master's degree from <a href="https://en.whu.edu.cn/"> Wuhan University </a> and <a href="https://ece.osu.edu/">The Ohio State University </a>respectively.</p>		
-				<p>My research and work experience is focus on <b style="font-weight: 600;">Computer Vision</b>, including <b style="font-weight: 600;">low-level vision</b> and <b style="font-weight: 600;">high-level vision</b>.
-					My previous research topics involved <b style="font-weight: 600;">video/image quality restoration</b> (denoise, super resolution, frame interperation), <b style="font-weight: 600;">video/image segmentation</b>, <b style="font-weight: 600;">video object tracking</b>. Also, my previous works involved AI model inference on <b style="font-weight: 600;">mobile devices</b>, high performance computing (OpenCL, CUDA) is also part of my work.</p>
-				<p>In the long term, my goal is to become a full-stack AI R&D.</p>
-					
-			</div>
-			<div class="col">
-				<img src="images/profile-2.jpg" class="img-fluid  rounded" alt="Responsive image" >
-			</div>
-		</div>
-		
-		<h5 class="mb-2">Updates</h5>
-		<ul>
-			<li>[Apr 2025] <a href="https://doi.org/10.1007/978-3-031-86651-7_2">One paper</a> accepted in MICCAI 2024 DIAMOND Challenge</li>
-			<li>[Apr 2025] <a href="https://doi.org/10.1007/978-3-031-86651-7_9">One paper</a> accepted in MICCAI 2024 MARIO Challenge</li>
-			<li>[Oct 2024] <a href="https://ieeexplore.ieee.org/abstract/document/10795843?casa_token=5nQTkuVvJAgAAAAA:0vXBYpIfKltOFwn-wwWgC5npU4ucX4Tk2oqVPUHhDqKb3Vk_MCjg65h3Jr6kTLBdCc4iTUiMOvM">One paper</a> accepted in ICCS 2024</li>
-			<li>[Aug 2023] Night Video Quality Enhancement SDK empower <a href="https://shop.autelrobotics.com/">Autel</a> EVO Lite, installed in 10+ thousands pilots.</li>
-			<li>[Dec 2022] Night Video Quality Enhancement SDK empower <a href="https://www.hihonor.com/global/">Honor</a> Magic 5, installed in 1+ million phones.</li>
-			<li>[Jun 2022] <a href="https://i02.appmifile.com/product/videos/xiaomi-12-night-video.mp4">Ultra Night Video</a> SDK empower <a href="https://www.mi.com/us/">Mi</a> 12, installed in 1+ million phones.</li>
-		</ul>
-		
-		<h5 class="mb-2">Projects</h5>
-		<ul>
-			<li>Video Quality Enhancement for Mobile Devices. <a href="demo.html#demo1">[demo]</a></li>
-		
-			<li>Super Resolution for Mobile Devices. <a href="demo.html#demo2">[demo]</a></li>
+          <div class="lead">
+            <p>
+              I am a computer vision researcher at KUANGJINGBOXUAN.
+              Previously I was an AI engineer at the AI Lab of
+              <a href="https://www.vivo.com/en">vivo</a> and an AI research intern at
+              <a href="https://jdcorporateblog.com/category/jd-technology/">JD AI Research</a>.
+              I hold a Bachelor's degree from
+              <a href="https://en.whu.edu.cn/">Wuhan University</a> and a Master's degree from
+              <a href="https://ece.osu.edu/">The Ohio State University</a>.
+            </p>
+            <p>
+              My work spans <strong>low-level</strong> and <strong>high-level vision</strong>:
+              <strong>video and image quality restoration</strong> (denoising, super resolution,
+              frame interpolation), <strong>segmentation</strong>, and
+              <strong>video object tracking</strong>. Much of it ships on
+              <strong>mobile devices</strong>, so high-performance computing with OpenCL and CUDA
+              is part of the job.
+            </p>
+            <p>In the long term, my goal is to become a full-stack AI R&amp;D engineer.</p>
+          </div>
 
-			<!-- <li>Human Segmentation for Mobile Devices. <a href="demo.html#demo3">[demo]</a></li> -->
+          <ul class="link-row">
+            <li>
+              <a href="mailto:jiangtianpan@hotmail.com">
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                </svg>
+                jiangtianpan@hotmail.com
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/JiangtianPan">
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+                JiangtianPan
+              </a>
+            </li>
+            <!-- PDF download withheld for now; restore this item to re-enable it.
+            <li>
+              <a href="documents/Resume_JiangtianPan.pdf">
+                <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.414A1.5 1.5 0 0 0 13.56 3.3L10.7.44A1.5 1.5 0 0 0 9.586 0H4Zm5 1.5V4a1 1 0 0 0 1 1h2.5L9 1.5ZM5 8h6v1H5V8Zm0 3h6v1H5v-1Z"/>
+                </svg>
+                Résumé (PDF)
+              </a>
+            </li>
+            -->
+          </ul>
+        </section>
 
-			<li>MEMC for Mobile Devices. <a href="demo.html#demo4">[demo]</a></li>
-	</ul>
-	</div>
-		</div>
+        <section class="section">
+          <h2 class="section__title">Updates</h2>
+          <ul class="entries">
+            <li class="entry">
+              <span class="entry__date">Apr 2025</span>
+              <span>
+                <a href="https://doi.org/10.1007/978-3-031-86651-7_2">One paper</a>
+                accepted at the MICCAI 2024 DIAMOND Challenge
+              </span>
+            </li>
+            <li class="entry">
+              <span class="entry__date">Apr 2025</span>
+              <span>
+                <a href="https://doi.org/10.1007/978-3-031-86651-7_9">One paper</a>
+                accepted at the MICCAI 2024 MARIO Challenge
+              </span>
+            </li>
+            <li class="entry">
+              <span class="entry__date">Oct 2024</span>
+              <span>
+                <a href="https://ieeexplore.ieee.org/abstract/document/10795843">One paper</a>
+                accepted at ICCS 2024
+              </span>
+            </li>
+            <li class="entry">
+              <span class="entry__date">Aug 2023</span>
+              <span>
+                Night Video Quality Enhancement SDK shipped on
+                <a href="https://shop.autelrobotics.com/">Autel</a> EVO Lite —
+                installed on 10,000+ drones
+              </span>
+            </li>
+            <li class="entry">
+              <span class="entry__date">Dec 2022</span>
+              <span>
+                Night Video Quality Enhancement SDK shipped on
+                <a href="https://www.hihonor.com/global/">Honor</a> Magic 5 —
+                installed on 1M+ phones
+              </span>
+            </li>
+            <li class="entry">
+              <span class="entry__date">Jun 2022</span>
+              <span>
+                <a href="https://i02.appmifile.com/product/videos/xiaomi-12-night-video.mp4">Ultra Night Video</a>
+                SDK shipped on <a href="https://www.mi.com/us/">Mi</a> 12 —
+                installed on 1M+ phones
+              </span>
+            </li>
+          </ul>
+        </section>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <section class="section">
+          <h2 class="section__title">Projects</h2>
+          <ul class="project-list">
+            <li>
+              <a href="demo.html#video-enhancement">Video Quality Enhancement for Mobile Devices</a>
+            </li>
+            <li>
+              <a href="demo.html#super-resolution">Super Resolution for Mobile Devices</a>
+            </li>
+            <li>
+              <a href="demo.html#frame-interpolation">Frame Interpolation (MEMC) for Mobile Devices</a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span>&copy; <span data-year>2025</span> Yukin Pan</span>
+        <a href="https://github.com/JiangtianPan/JiangtianPan.github.io">Source</a>
+      </div>
+    </footer>
+
+    <script src="js/site.js"></script>
   </body>
 </html>
