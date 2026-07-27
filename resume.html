@@ -134,6 +134,65 @@
           </ul>
         </section>
 
+        <!-- Professional ------------------------------------------------- -->
+        <section class="section">
+          <h2 class="section__title">Professional Experience</h2>
+
+          <article class="role">
+            <div class="role__head">
+              <h3 class="role__title">AI Engineer — HomeTeam Live</h3>
+              <span class="meta">03/2026 – Present</span>
+            </div>
+            <!-- <p class="role__sub">
+              <a href="https://www.hometeamlive.com/">hometeamlive.com</a>
+            </p> -->
+
+            <div class="project">
+              <h4 class="project__name">AI-Powered Sports Video Broadcasting</h4>
+              <ul>
+                <li>Building AI-driven video broadcasting for live sports.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role">
+            <div class="role__head">
+              <h3 class="role__title">CV Engineer — vivo AI Research</h3>
+              <span class="meta">07/2019 – 06/2021</span>
+            </div>
+
+            <div class="project">
+              <h4 class="project__name">Face Clustering in Digital Album</h4>
+              <ul>
+                <li><strong>Facial feature extraction</strong>: built a CNN tailored to extracting human facial features.</li>
+                <li><strong>Graph Clustering Algorithm (GCA)</strong>: designed a clustering algorithm grounded in graph structure and K-nearest-neighbour theory.</li>
+                <li><strong>On-device implementation</strong>: paired GCA with cosine distance for real-time clustering on smartphones.</li>
+                <li><strong>Results</strong>: raised accuracy/recall from 0.92/0.79 without GCA to 0.99/0.94 with it.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <h4 class="project__name">Real-Time Human Segmentation on Mobile Devices</h4>
+              <ul>
+                <li><strong>CNN design</strong>: an encoder-decoder built on <a href="https://arxiv.org/pdf/1505.04597.pdf">UNet</a> and <a href="https://arxiv.org/pdf/1704.04861.pdf">depthwise separable convolution</a>, implemented in TensorFlow.</li>
+                <li><strong>Data augmentation</strong>: grew the <a href="http://xiaoyongshen.me/webpage_portrait/index.html">PFCN</a> dataset (18,698 images) and the vivo dataset (5,000 images) past 60,000 images via cropping, flipping, shifting, zooming and alpha blending.</li>
+                <li><strong>Inter-frame consistency</strong>: introduced alpha blending during processing to keep masks stable frame to frame.</li>
+                <li><strong>Efficiency</strong>: distillation and pruning took inference from 25 fps to 75 fps on Qualcomm Snapdragon 855.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <h4 class="project__name">Real-Time Frame Interpolation and Motion Deblur on Mobile Devices</h4>
+              <ul>
+                <li><strong>CNN design</strong>: a two-stage model rooted in the <a href="https://arxiv.org/pdf/1712.00080.pdf">Super SloMo</a> architecture, covering optical flow prediction and frame restoration.</li>
+                <li><strong>Efficiency</strong>: cut FLOPs substantially through distillation and pruning.</li>
+                <li><strong>Unsupervised training</strong>: proposed an unsupervised scheme enabling training on <a href="http://www.cs.ubc.ca/labs/imager/tr/2017/DeepVideoDeblurring/">Adobe240fps</a> and <a href="https://www.crcv.ucf.edu/data/UCF101.php">UCF101</a>.</li>
+                <li><strong>Parallel pipeline</strong>: built a pipeline with OpenCL on GPU and VCap on NPU, taking throughput from 7 fps to 40 fps.</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+
         <!-- Research ----------------------------------------------------- -->
         <section class="section">
           <h2 class="section__title">Research Experience</h2>
@@ -193,65 +252,6 @@
                 <li><strong>Data augmentation</strong>: extended the training set with rotations and reversals, plus Mask-RCNN for multi-human object detection.</li>
                 <li><strong>Fine-tuning and fusion</strong>: adapted JPP-Net, SS-NAN, DenseNet, RefineNet and UPerNet on the L.I.P training set, then fused them and folded in key-point data.</li>
                 <li><strong>Hard class mining</strong>: targeted the hardest categories specifically, lifting overall pixel accuracy to 87.42%.</li>
-              </ul>
-            </div>
-          </article>
-        </section>
-
-        <!-- Professional ------------------------------------------------- -->
-        <section class="section">
-          <h2 class="section__title">Professional Experience</h2>
-
-          <article class="role">
-            <div class="role__head">
-              <h3 class="role__title">AI Engineer — HomeTeam Live</h3>
-              <span class="meta">03/2026 – Present</span>
-            </div>
-            <!-- <p class="role__sub">
-              <a href="https://www.hometeamlive.com/">hometeamlive.com</a>
-            </p> -->
-
-            <div class="project">
-              <h4 class="project__name">AI-Powered Sports Video Broadcasting</h4>
-              <ul>
-                <li>Building AI-driven video broadcasting for live sports.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="role">
-            <div class="role__head">
-              <h3 class="role__title">CV Engineer — vivo AI Research</h3>
-              <span class="meta">07/2019 – 06/2021</span>
-            </div>
-
-            <div class="project">
-              <h4 class="project__name">Face Clustering in Digital Album</h4>
-              <ul>
-                <li><strong>Facial feature extraction</strong>: built a CNN tailored to extracting human facial features.</li>
-                <li><strong>Graph Clustering Algorithm (GCA)</strong>: designed a clustering algorithm grounded in graph structure and K-nearest-neighbour theory.</li>
-                <li><strong>On-device implementation</strong>: paired GCA with cosine distance for real-time clustering on smartphones.</li>
-                <li><strong>Results</strong>: raised accuracy/recall from 0.92/0.79 without GCA to 0.99/0.94 with it.</li>
-              </ul>
-            </div>
-
-            <div class="project">
-              <h4 class="project__name">Real-Time Human Segmentation on Mobile Devices</h4>
-              <ul>
-                <li><strong>CNN design</strong>: an encoder-decoder built on <a href="https://arxiv.org/pdf/1505.04597.pdf">UNet</a> and <a href="https://arxiv.org/pdf/1704.04861.pdf">depthwise separable convolution</a>, implemented in TensorFlow.</li>
-                <li><strong>Data augmentation</strong>: grew the <a href="http://xiaoyongshen.me/webpage_portrait/index.html">PFCN</a> dataset (18,698 images) and the vivo dataset (5,000 images) past 60,000 images via cropping, flipping, shifting, zooming and alpha blending.</li>
-                <li><strong>Inter-frame consistency</strong>: introduced alpha blending during processing to keep masks stable frame to frame.</li>
-                <li><strong>Efficiency</strong>: distillation and pruning took inference from 25 fps to 75 fps on Qualcomm Snapdragon 855.</li>
-              </ul>
-            </div>
-
-            <div class="project">
-              <h4 class="project__name">Real-Time Frame Interpolation and Motion Deblur on Mobile Devices</h4>
-              <ul>
-                <li><strong>CNN design</strong>: a two-stage model rooted in the <a href="https://arxiv.org/pdf/1712.00080.pdf">Super SloMo</a> architecture, covering optical flow prediction and frame restoration.</li>
-                <li><strong>Efficiency</strong>: cut FLOPs substantially through distillation and pruning.</li>
-                <li><strong>Unsupervised training</strong>: proposed an unsupervised scheme enabling training on <a href="http://www.cs.ubc.ca/labs/imager/tr/2017/DeepVideoDeblurring/">Adobe240fps</a> and <a href="https://www.crcv.ucf.edu/data/UCF101.php">UCF101</a>.</li>
-                <li><strong>Parallel pipeline</strong>: built a pipeline with OpenCL on GPU and VCap on NPU, taking throughput from 7 fps to 40 fps.</li>
               </ul>
             </div>
           </article>
