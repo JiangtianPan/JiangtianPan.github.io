@@ -80,6 +80,21 @@ returns 403. To send elsewhere later, verify a domain and change `MAIL_FROM`.
 Free tiers in play: Workers 100k req/day, D1 100k writes/day, Resend 3000
 emails/month. A personal site will not come close to any of them.
 
+## Excluding your own visits
+
+Load any page with `#toggle-goatcounter` appended:
+
+    https://jiangtianpan.github.io/#toggle-goatcounter
+
+An alert confirms it. That flips `localStorage.skipgc` in this browser, which
+GoatCounter's own `count.js` checks before sending — and `../js/site.js` reads
+the same flag before pinging this Worker, so the one toggle silences both.
+Load the same URL again to turn counting back on.
+
+Per browser and per device, and lost if you clear site data. There is no
+server-side exclusion: the Worker would need to recognise you, and it has
+nothing to recognise you by — which is the point.
+
 ## Checking it works
 
 ```sh

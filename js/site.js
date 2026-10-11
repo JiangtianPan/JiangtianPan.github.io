@@ -81,6 +81,12 @@
     if (!ANALYTICS_ENDPOINT) return;
     // Don't let local development pollute the counts.
     if (/^(localhost|127\.|0\.0\.0\.0|192\.168\.|10\.)/.test(location.hostname)) return;
+    // Reuse GoatCounter's own opt-out flag rather than inventing a second
+    // one, so loading <page>#toggle-goatcounter once silences BOTH counters
+    // in this browser. Same origin, so both read the same localStorage.
+    try {
+      if (localStorage.getItem("skipgc") === "t") return;
+    } catch (e) {}
     try {
       // No headers and no body keeps this a CORS "simple request", so the
       // browser skips the OPTIONS preflight and this costs one round trip.
