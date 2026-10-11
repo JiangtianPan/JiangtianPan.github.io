@@ -84,6 +84,11 @@
     // Reuse GoatCounter's own opt-out flag rather than inventing a second
     // one, so loading <page>#toggle-goatcounter once silences BOTH counters
     // in this browser. Same origin, so both read the same localStorage.
+    //
+    // The toggle visit itself is skipped too: count.js loads async and sets
+    // the flag after this function has already run, so without this check the
+    // very visit that opts you out would still be counted here.
+    if (location.hash === "#toggle-goatcounter") return;
     try {
       if (localStorage.getItem("skipgc") === "t") return;
     } catch (e) {}
