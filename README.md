@@ -16,7 +16,7 @@ css/site.css          The entire stylesheet: design tokens, layout, components
 js/site.js            Theme toggle + footer year
 images/avatar.jpg     Profile image
 documents/
-  Resume_JiangtianPan.pdf    Résumé, PDF
+  Resume_YukinPan.pdf        Résumé, PDF
   Resume_YukinPan.md         Résumé, Markdown source
   demo/                      Demo videos and stills
   demo/posters/              Video poster frames (generated, see below)
@@ -61,5 +61,5 @@ ffmpeg -ss 00:00:01 -i documents/demo/NAME.mp4 -frames:v 1 \
 ## Résumé
 
 The résumé exists in three places, kept in sync by hand:
-`resume.html` (canonical, on the web), `documents/Resume_JiangtianPan.pdf`
+`resume.html` (canonical, on the web), `documents/Resume_YukinPan.pdf`
 (the download), and `documents/Resume_YukinPan.md` (Markdown source).

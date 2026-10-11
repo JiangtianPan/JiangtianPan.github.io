@@ -11,3 +11,6 @@
 
 # Logs
 *.log
+
+# Cloudflare Wrangler local state (caches the account id and last-seen cf object)
+.wrangler/

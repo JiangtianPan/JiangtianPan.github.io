@@ -69,6 +69,28 @@
 
   syncUi(resolvedTheme());
 
+  // --- City-level visit ping -------------------------------------------
+  // Paste the deployed Worker URL here (see worker/README.md). While this is
+  // empty the site makes no request at all, so it is safe to ship as-is.
+  //
+  // The Worker derives the city from Cloudflare's edge and never sees or
+  // stores an IP; this call sends no body, no id and no page path.
+  var ANALYTICS_ENDPOINT = "https://yukin-city-analytics.jiangtianpan.workers.dev";
+
+  function pingCityAnalytics() {
+    if (!ANALYTICS_ENDPOINT) return;
+    // Don't let local development pollute the counts.
+    if (/^(localhost|127\.|0\.0\.0\.0|192\.168\.|10\.)/.test(location.hostname)) return;
+    try {
+      // No headers and no body keeps this a CORS "simple request", so the
+      // browser skips the OPTIONS preflight and this costs one round trip.
+      fetch(ANALYTICS_ENDPOINT, { method: "POST", mode: "cors", keepalive: true })
+        .catch(function () {});  // analytics must never break the page
+    } catch (e) {}
+  }
+
+  pingCityAnalytics();
+
   var year = document.querySelector("[data-year]");
   if (year) year.textContent = String(new Date().getFullYear());
 })();

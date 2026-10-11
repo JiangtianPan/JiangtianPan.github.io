@@ -1,0 +1,23 @@
+name = "yukin-city-analytics"
+main = "index.js"
+compatibility_date = "2026-09-01"
+
+# Created with: wrangler d1 create visits --location enam
+[[d1_databases]]
+binding = "DB"
+database_name = "visits"
+database_id = "14c5b43a-ed30-4617-a7fe-a24a178c2241"
+
+# 13:00 UTC = 09:00 Toronto (EDT) / 08:00 (EST).
+# Cron is always UTC, so the local hour shifts by one across DST.
+[triggers]
+crons = ["0 13 * * *"]
+
+[vars]
+# Works without owning a domain, but Resend will ONLY deliver to the address
+# that registered the Resend account. Register with MAIL_TO below.
+MAIL_FROM = "onboarding@resend.dev"
+MAIL_TO = "jiangtianpan@hotmail.com"
+
+# RESEND_API_KEY is a secret, never put it in this file:
+#   wrangler secret put RESEND_API_KEY
