@@ -8,7 +8,7 @@ binding = "DB"
 database_name = "visits"
 database_id = "14c5b43a-ed30-4617-a7fe-a24a178c2241"
 
-# 13:00 UTC = 09:00 Toronto (EDT) / 08:00 (EST).
+# 13:00 UTC = 09:00 Eastern Time (EDT) / 08:00 (EST).
 # Cron is always UTC, so the local hour shifts by one across DST.
 [triggers]
 crons = ["0 13 * * *"]
