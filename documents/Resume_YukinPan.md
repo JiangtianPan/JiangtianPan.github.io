@@ -63,7 +63,7 @@ Professional Experience
 
 Research Experience
 ---------
-**AI Researcher, KUANGJINGBOXUAN** (07/2021 - 10/2024)
+**AI Researcher, Megvii Research** (07/2021 - 10/2024)
 
 > Real-Time Video Quality Enhancement for Mobile Devices:
 - **Proposed a CNN Based Model**: Combined an attention module, skip connections, residual modules and mask modules to restore video quality in real time.
