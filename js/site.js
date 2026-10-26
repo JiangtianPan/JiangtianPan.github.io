@@ -92,11 +92,27 @@
     try {
       if (localStorage.getItem("skipgc") === "t") return;
     } catch (e) {}
+    // Where this visit came from, reduced to a bare hostname. The full
+    // referrer URL can identify a person through its path (think
+    // linkedin.com/in/their-name), so only the host is ever sent. Same-site
+    // navigation is dropped: it is internal, not a source.
+    var ref = "";
     try {
-      // No headers and no body keeps this a CORS "simple request", so the
-      // browser skips the OPTIONS preflight and this costs one round trip.
-      fetch(ANALYTICS_ENDPOINT, { method: "POST", mode: "cors", keepalive: true })
-        .catch(function () {});  // analytics must never break the page
+      if (document.referrer) {
+        var host = new URL(document.referrer).hostname;
+        if (host && host !== location.hostname) ref = host;
+      }
+    } catch (e) {}
+
+    try {
+      // Passing the host as a query parameter rather than a JSON body keeps
+      // this a CORS "simple request": no custom headers means no OPTIONS
+      // preflight, so it still costs a single round trip.
+      fetch(ANALYTICS_ENDPOINT + "?r=" + encodeURIComponent(ref), {
+        method: "POST",
+        mode: "cors",
+        keepalive: true,
+      }).catch(function () {});  // analytics must never break the page
     } catch (e) {}
   }
 

@@ -76,15 +76,36 @@ export default {
 
     const day = new Date().toISOString().slice(0, 10);
 
+    // Referrer host, already stripped to a bare hostname by js/site.js. The
+    // Referer header on THIS request is our own page, not the visitor's
+    // origin, so the value has to come from the page via ?r=.
+    let source = "";
     try {
-      await env.DB.prepare(
-        `INSERT INTO hits (day, country, region, city, lat, lon, count)
-         VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1)
-         ON CONFLICT (day, country, region, city)
-         DO UPDATE SET count = count + 1`
-      )
-        .bind(day, country, region, city, lat, lon)
-        .run();
+      source = (new URL(request.url).searchParams.get("r") || "")
+        .toLowerCase()
+        .slice(0, 100);
+      // Accept only something shaped like a hostname; anything else is junk
+      // or an injection attempt, and is recorded as a direct visit.
+      if (!/^[a-z0-9.-]+$/.test(source)) source = "";
+    } catch (err) {
+      source = "";
+    }
+
+    try {
+      await env.DB.batch([
+        env.DB.prepare(
+          `INSERT INTO hits (day, country, region, city, lat, lon, count)
+           VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1)
+           ON CONFLICT (day, country, region, city)
+           DO UPDATE SET count = count + 1`
+        ).bind(day, country, region, city, lat, lon),
+        env.DB.prepare(
+          `INSERT INTO sources (day, source, count)
+           VALUES (?1, ?2, 1)
+           ON CONFLICT (day, source)
+           DO UPDATE SET count = count + 1`
+        ).bind(day, source),
+      ]);
     } catch (err) {
       // A failed count must never surface to the visitor.
       console.error("insert failed:", err.message);
@@ -97,16 +118,24 @@ export default {
   async scheduled(event, env) {
     const day = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
 
-    const { results } = await env.DB.prepare(
-      `SELECT country, region, city, count
-         FROM hits
-        WHERE day = ?1
-        ORDER BY country ASC, count DESC`
-    )
-      .bind(day)
-      .all();
+    const [cityRes, sourceRes] = await env.DB.batch([
+      env.DB.prepare(
+        `SELECT country, region, city, count
+           FROM hits
+          WHERE day = ?1
+          ORDER BY country ASC, count DESC`
+      ).bind(day),
+      env.DB.prepare(
+        `SELECT source, count
+           FROM sources
+          WHERE day = ?1
+          ORDER BY count DESC, source ASC`
+      ).bind(day),
+    ]);
+    const results = cityRes.results || [];
+    const sources = sourceRes.results || [];
 
-    if (!results || results.length === 0) {
+    if (results.length === 0) {
       console.log(`no visits on ${day}, skipping email`);
       return;
     }
@@ -139,6 +168,22 @@ export default {
       }
     }
 
+    // Sources block. Omitted entirely when every visit came in without a
+    // referrer, since a lone "Direct / unknown" row says nothing.
+    let sourceRows = "";
+    if (sources.some((r) => r.source)) {
+      sourceRows =
+        `<tr><td colspan="2" style="padding:18px 0 4px;font-weight:600;` +
+        `border-bottom:1px solid #e3e3df">Sources</td></tr>`;
+      for (const r of sources) {
+        const label = r.source ? escapeHtml(r.source) : "Direct / unknown";
+        sourceRows +=
+          `<tr><td style="padding:4px 0;color:#46463f">${label}</td>` +
+          `<td style="padding:4px 0;text-align:right;font-variant-numeric:tabular-nums;` +
+          `color:#46463f">${r.count}</td></tr>`;
+      }
+    }
+
     const html =
       `<div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;` +
       `max-width:420px;color:#1b1b19;line-height:1.5">` +
@@ -146,7 +191,7 @@ export default {
       `visit${total === 1 ? "" : "s"} from <strong>${cities}</strong> ` +
       `cit${cities === 1 ? "y" : "ies"}</p>` +
       `<p style="margin:0 0 16px;color:#71716a;font-size:13px">${day}</p>` +
-      `<table style="width:100%;border-collapse:collapse;font-size:14px">${rows}</table>` +
+      `<table style="width:100%;border-collapse:collapse;font-size:14px">${rows}${sourceRows}</table>` +
       `<p style="margin:22px 0 0;color:#8d8d86;font-size:11px;border-top:1px solid #e3e3df;` +
       `padding-top:10px">jiangtianpan.github.io · aggregate counts only, no IP addresses stored</p>` +
       `</div>`;

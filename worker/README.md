@@ -10,14 +10,32 @@ It never reads the visitor's IP. Cloudflare resolves IP → city at the edge
 before the request arrives, so the Worker only ever sees the resolved place
 name in `request.cf`. `CF-Connecting-IP` is never called.
 
-The database holds one aggregate row per `(day, city)`:
+Two tables, each holding aggregate counts per day.
+
+`hits` — one row per `(day, city)`:
 
 | day | country | region | city | lat | lon | count |
 |-----|---------|--------|------|-----|-----|-------|
 | 2026-10-11 | CA | Ontario | Toronto | 43.70 | -79.42 | 7 |
 
-No per-visitor rows, no session ids, no cookies, no user agent, no referrer.
-Two visits by one person are indistinguishable from visits by two people.
+`sources` — one row per `(day, referrer host)`:
+
+| day | source | count |
+|-----|--------|-------|
+| 2026-10-11 | linkedin.com | 4 |
+| 2026-10-11 | *(empty)* | 2 |
+
+Only the referrer's **hostname** is kept. A full referrer URL can identify a
+person through its path — `linkedin.com/in/their-name` — so `js/site.js`
+strips everything but the host before sending, and the Worker rejects anything
+that is not hostname-shaped. Same-site navigation is dropped: it is internal,
+not a source. An empty source means no referrer was available, which covers
+genuinely direct visits, links opened from apps or PDFs, and sites that send
+no referrer — these are indistinguishable from each other.
+
+No per-visitor rows, no session ids, no cookies, no user agent, no URL paths.
+Two visits by one person are indistinguishable from visits by two people, and
+the two tables cannot be joined to link a city to a source.
 
 ## Deploy
 
