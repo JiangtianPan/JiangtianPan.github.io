@@ -10,32 +10,36 @@ It never reads the visitor's IP. Cloudflare resolves IP → city at the edge
 before the request arrives, so the Worker only ever sees the resolved place
 name in `request.cf`. `CF-Connecting-IP` is never called.
 
-Two tables, each holding aggregate counts per day.
+One row per `(day, city, source)`:
 
-`hits` — one row per `(day, city)`:
+| day | country | region | city | source | lat | lon | count |
+|-----|---------|--------|------|--------|-----|-----|-------|
+| 2026-10-25 | CA | Manitoba | Winnipeg | linkedin.com | 49.8 | -97.1 | 1 |
+| 2026-10-25 | CA | Manitoba | Winnipeg | google.com | 49.8 | -97.1 | 1 |
+| 2026-10-25 | US | Iowa | Council Bluffs | *(empty)* | 41.2 | -95.8 | 1 |
 
-| day | country | region | city | lat | lon | count |
-|-----|---------|--------|------|-----|-----|-------|
-| 2026-10-11 | CA | Ontario | Toronto | 43.70 | -79.42 | 7 |
-
-`sources` — one row per `(day, referrer host)`:
-
-| day | source | count |
-|-----|--------|-------|
-| 2026-10-11 | linkedin.com | 4 |
-| 2026-10-11 | *(empty)* | 2 |
+The daily email collapses these to one line per city carrying its own source
+list, so the row above reads `Winnipeg, Manitoba  2  linkedin.com, google.com`.
 
 Only the referrer's **hostname** is kept. A full referrer URL can identify a
 person through its path — `linkedin.com/in/their-name` — so `js/site.js`
 strips everything but the host before sending, and the Worker rejects anything
 that is not hostname-shaped. Same-site navigation is dropped: it is internal,
-not a source. An empty source means no referrer was available, which covers
+not a source. An empty source means no referrer was available, covering
 genuinely direct visits, links opened from apps or PDFs, and sites that send
-no referrer — these are indistinguishable from each other.
+no referrer — indistinguishable from each other, and shown as `direct`.
 
 No per-visitor rows, no session ids, no cookies, no user agent, no URL paths.
-Two visits by one person are indistinguishable from visits by two people, and
-the two tables cannot be joined to link a city to a source.
+Two visits by one person are indistinguishable from visits by two people.
+
+## Schema changes
+
+`schema.sql` is the current shape and is safe to re-run. One-off migrations
+live in `migrations/` and are applied with:
+
+```sh
+wrangler d1 execute visits --remote --file=./migrations/<name>.sql
+```
 
 ## Deploy
 

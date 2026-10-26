@@ -92,20 +92,14 @@ export default {
     }
 
     try {
-      await env.DB.batch([
-        env.DB.prepare(
-          `INSERT INTO hits (day, country, region, city, lat, lon, count)
-           VALUES (?1, ?2, ?3, ?4, ?5, ?6, 1)
-           ON CONFLICT (day, country, region, city)
-           DO UPDATE SET count = count + 1`
-        ).bind(day, country, region, city, lat, lon),
-        env.DB.prepare(
-          `INSERT INTO sources (day, source, count)
-           VALUES (?1, ?2, 1)
-           ON CONFLICT (day, source)
-           DO UPDATE SET count = count + 1`
-        ).bind(day, source),
-      ]);
+      await env.DB.prepare(
+        `INSERT INTO hits (day, country, region, city, source, lat, lon, count)
+         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, 1)
+         ON CONFLICT (day, country, region, city, source)
+         DO UPDATE SET count = count + 1`
+      )
+        .bind(day, country, region, city, source, lat, lon)
+        .run();
     } catch (err) {
       // A failed count must never surface to the visitor.
       console.error("insert failed:", err.message);
@@ -118,69 +112,68 @@ export default {
   async scheduled(event, env) {
     const day = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
 
-    const [cityRes, sourceRes] = await env.DB.batch([
-      env.DB.prepare(
-        `SELECT country, region, city, count
-           FROM hits
-          WHERE day = ?1
-          ORDER BY country ASC, count DESC`
-      ).bind(day),
-      env.DB.prepare(
-        `SELECT source, count
-           FROM sources
-          WHERE day = ?1
-          ORDER BY count DESC, source ASC`
-      ).bind(day),
-    ]);
-    const results = cityRes.results || [];
-    const sources = sourceRes.results || [];
+    const { results } = await env.DB.prepare(
+      `SELECT country, region, city, source, count
+         FROM hits
+        WHERE day = ?1
+        ORDER BY country ASC, count DESC`
+    )
+      .bind(day)
+      .all();
 
-    if (results.length === 0) {
+    if (!results || results.length === 0) {
       console.log(`no visits on ${day}, skipping email`);
       return;
     }
 
     const total = results.reduce((sum, r) => sum + r.count, 0);
-    const cities = results.filter((r) => r.city).length;
+
+    // Rows are per (city, source); collapse them to one entry per city that
+    // carries its own source list, so the email reads
+    //   Winnipeg, Manitoba   2   linkedin.com, google.com
+    const byPlace = new Map();
+    for (const r of results) {
+      const key = `${r.country}\u0000${r.region}\u0000${r.city}`;
+      if (!byPlace.has(key)) {
+        byPlace.set(key, { country: r.country, region: r.region, city: r.city, count: 0, srcs: [] });
+      }
+      const e = byPlace.get(key);
+      e.count += r.count;
+      e.srcs.push({ source: r.source, count: r.count });
+    }
+
+    const places = [...byPlace.values()];
+    const cities = places.filter((p) => p.city).length;
 
     const byCountry = new Map();
-    for (const r of results) {
-      if (!byCountry.has(r.country)) byCountry.set(r.country, []);
-      byCountry.get(r.country).push(r);
+    for (const p of places.sort((a, b) => b.count - a.count)) {
+      if (!byCountry.has(p.country)) byCountry.set(p.country, []);
+      byCountry.get(p.country).push(p);
     }
 
     let rows = "";
     for (const [country, list] of byCountry) {
-      const subtotal = list.reduce((s, r) => s + r.count, 0);
+      const subtotal = list.reduce((s, p) => s + p.count, 0);
       // "??" is Cloudflare's placeholder when it cannot resolve the country.
       const label =
         country === "??" ? "Unknown" : `${flag(country)} ${escapeHtml(country)}`;
       rows +=
-        `<tr><td colspan="2" style="padding:14px 0 4px;font-weight:600;` +
+        `<tr><td colspan="3" style="padding:14px 0 4px;font-weight:600;` +
         `border-bottom:1px solid #e3e3df">${label}` +
         ` <span style="color:#71716a;font-weight:400">· ${subtotal}</span></td></tr>`;
-      for (const r of list) {
-        const place = [r.city, r.region].filter(Boolean).join(", ") || "Unknown";
+      for (const p of list) {
+        const place = [p.city, p.region].filter(Boolean).join(", ") || "Unknown";
+        // Busiest source first; "" means no referrer was available.
+        const srcList = p.srcs
+          .sort((a, b) => b.count - a.count)
+          .map((x) => escapeHtml(x.source || "direct"))
+          .join(", ");
         rows +=
-          `<tr><td style="padding:4px 0;color:#46463f">${escapeHtml(place)}</td>` +
-          `<td style="padding:4px 0;text-align:right;font-variant-numeric:tabular-nums;` +
-          `color:#46463f">${r.count}</td></tr>`;
-      }
-    }
-
-    // Sources block. Omitted entirely when every visit came in without a
-    // referrer, since a lone "Direct / unknown" row says nothing.
-    let sourceRows = "";
-    if (sources.some((r) => r.source)) {
-      sourceRows =
-        `<tr><td colspan="2" style="padding:18px 0 4px;font-weight:600;` +
-        `border-bottom:1px solid #e3e3df">Sources</td></tr>`;
-      for (const r of sources) {
-        const label = r.source ? escapeHtml(r.source) : "Direct / unknown";
-        sourceRows +=
-          `<tr><td style="padding:4px 0;color:#46463f">${label}</td>` +
-          `<td style="padding:4px 0;text-align:right;font-variant-numeric:tabular-nums;` +
-          `color:#46463f">${r.count}</td></tr>`;
+          `<tr><td style="padding:4px 12px 4px 0;color:#46463f;white-space:nowrap">` +
+          `${escapeHtml(place)}</td>` +
+          `<td style="padding:4px 12px 4px 0;text-align:right;` +
+          `font-variant-numeric:tabular-nums;color:#46463f">${p.count}</td>` +
+          `<td style="padding:4px 0;color:#71716a;font-size:13px">${srcList}</td></tr>`;
       }
     }
 
@@ -191,7 +184,7 @@ export default {
       `visit${total === 1 ? "" : "s"} from <strong>${cities}</strong> ` +
       `cit${cities === 1 ? "y" : "ies"}</p>` +
       `<p style="margin:0 0 16px;color:#71716a;font-size:13px">${day}</p>` +
-      `<table style="width:100%;border-collapse:collapse;font-size:14px">${rows}${sourceRows}</table>` +
+      `<table style="width:100%;border-collapse:collapse;font-size:14px">${rows}</table>` +
       `<p style="margin:22px 0 0;color:#8d8d86;font-size:11px;border-top:1px solid #e3e3df;` +
       `padding-top:10px">jiangtianpan.github.io · aggregate counts only, no IP addresses stored</p>` +
       `</div>`;
