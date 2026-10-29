@@ -25,11 +25,6 @@ Scholarships and Awards
 
 Professional Experience
 ---------
-**AI Engineer, HomeTeam Live** (03/2026 - present)
-
-> AI-Powered Sports Video Broadcasting:
-- Building AI-driven video broadcasting for live sports.
-
 **CV Engineer, vivo AI Research** (07/2019 - 06/2021)
 
 > Face Clustering in Digital Album:
@@ -63,7 +58,7 @@ Professional Experience
 
 Research Experience
 ---------
-**AI Researcher, Megvii Research** (07/2021 - 10/2024)
+**CV Researcher, Megvii Research** (07/2021 - present)
 
 > Real-Time Video Quality Enhancement for Mobile Devices:
 - **Proposed a CNN Based Model**: Combined an attention module, skip connections, residual modules and mask modules to restore video quality in real time.
